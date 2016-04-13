@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/kancollehelper"
+            android:layout_width="72dp"
+
+            android:layout_height="72dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+
+            android:layout_marginStart="40dp"
+            android:layout_marginLeft="40dp"
+
+
+            android:src="@mipmap/touxiang_dachao_gaier"/>
+
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/kancollehelper"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginTop="6dp"
+        android:text="“司令官，最近怎么样？过得充实吗？”"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textSize="@dimen/little_text_size"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

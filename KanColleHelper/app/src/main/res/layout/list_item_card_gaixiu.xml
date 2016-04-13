@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/card_margin_left"
+    android:layout_marginStart="@dimen/card_margin_left"
+    android:layout_marginRight="@dimen/card_margin_right"
+    android:layout_marginEnd="@dimen/card_margin_right"
+    android:layout_marginTop="@dimen/card_view_margin"
+
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="2dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardBackgroundColor="@color/white">
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/layout_margin_top"
+        android:layout_marginLeft="@dimen/layout_margin_left"
+        android:layout_marginStart="@dimen/layout_margin_left"
+        android:layout_marginBottom="@dimen/layout_margin_bottom"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/zhuangbeileibie1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/little_text_size"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/little_text_size"
+            android:ellipsize="end"
+            android:text="@string/textlei"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/little_text_size"
+            android:ellipsize="end"
+            android:text=" · "
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+        <TextView
+            android:id="@+id/zhuangbeileibie2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/little_text_size"
+            android:ellipsize="end"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/zhuangbeimingcheng"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_view_margin_left"
+            android:layout_marginStart="@dimen/text_view_margin_left"
+            android:textSize="@dimen/big_text_size"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/textview_margin_top"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/little_text_size"
+            android:ellipsize="end"
+            android:layout_marginTop="@dimen/textview_margin_top"
+            android:text="@string/text_gaixiuzhushou"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+        <TextView
+            android:id="@+id/gaixiuzhushou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/text_view_margin_left"
+            android:layout_marginStart="@dimen/text_view_margin_left"
+            android:textSize="@dimen/middle_text_size"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginTop="@dimen/textview_margin_top"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <ImageView
+            android:id="@+id/guanzhuxinpin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|left"
+            android:contentDescription="@string/imageview_content_description_xiaocaidai" />
+
+         </LinearLayout>
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

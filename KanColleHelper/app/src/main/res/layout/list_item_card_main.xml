@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="@dimen/card_view_margin"
+    card_view:contentPaddingLeft="15dp"
+    card_view:contentPaddingTop="8dp"
+    card_view:contentPaddingBottom="8dp"
+    card_view:contentPaddingRight="15dp"
+    card_view:cardCornerRadius="4dp"
+    card_view:cardElevation="2dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    card_view:cardBackgroundColor="@color/white">
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"       >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:text="装备名称:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:ellipsize="end"
+            android:layout_marginTop="1dp"
+            android:text="10cm连装高角炮+94式高射装置"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:ellipsize="end"
+            android:layout_marginTop="1dp"
+            android:text="改修助手:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:textSize="12sp"
+            android:text="全员皆可"
+            android:ellipsize="end"
+            android:layout_marginTop="1dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+
+    </LinearLayout>
+</android.support.v7.widget.CardView>

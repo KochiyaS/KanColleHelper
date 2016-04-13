@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.kochiyasanae.kancollehelper.HuanyingActivity"
+    tools:showIn="@layout/activity_huanying"
+>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+
+
+
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin_left"
+                android:layout_marginStart="@dimen/card_margin_left"
+                android:layout_marginRight="@dimen/card_margin_right"
+                android:layout_marginEnd="@dimen/card_margin_right"
+                android:layout_marginTop="@dimen/card_view_margin"
+
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardBackgroundColor="@color/white">
+                >
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:layout_marginLeft="@dimen/layout_margin_left"
+                    android:layout_marginStart="@dimen/layout_margin_left"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:text="更新日期"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="2016年4月10日  V 0.15 Release"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:text="更新内容"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="内容更新"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、皋月的远征日记已加入豪华午餐。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="UI进化"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、全新设计了大潮改二、燃弹钢铝等一系列图标。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="2、为全部图片增加高分辨率版本，改善了本APP在高分辨率屏幕上的表现。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="其他部分"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、新增了“欢迎帮助”界面和“关于更新”界面。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="2、现在你可以通过诸多软件商店下载并更新本APP了(详情请查阅“关于更新”界面)。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin_left"
+                android:layout_marginStart="@dimen/card_margin_left"
+                android:layout_marginRight="@dimen/card_margin_right"
+                android:layout_marginEnd="@dimen/card_margin_right"
+                android:layout_marginTop="@dimen/card_view_margin"
+
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardBackgroundColor="@color/white">
+                >
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:layout_marginLeft="@dimen/layout_margin_left"
+                    android:layout_marginStart="@dimen/layout_margin_left"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom">
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="软件说明"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="本程序是一款舰Colle的装备改修、远征数据查询APP，适配安卓4.03至6.0版本。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="使用说明"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="基本的操作方法"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、左右滑动打开菜单或切换界面，轻点项目查看详情。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="2、长按添加或删除关注(改修部分)。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="皋月的远征日记"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、可查询详细的远征数据。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="明石的改修日常"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、可关注并查询今明两天以及全部的装备改修数据。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:textColor="@color/fense"
+                        android:text="2、初次使用时，请务必先到“装备分类”中添加改修关注。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</RelativeLayout>
