@@ -1,11 +1,8 @@
 package com.kochiyasanae.kancollehelper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -16,12 +13,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 
 import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.*;
+import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
+import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,10 +72,17 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 break;
 
 
+
+                            case R.id.nav_setting:
+                                Intent intent7 = new Intent();
+                                intent7.setClass(YuanzhengActivity.this, XuanxiangshezhiActivity.class);
+                                startActivity(intent7);
+                                break;
+
                             case R.id.nav_update:
-                                Intent intent6 = new Intent();
-                                intent6.setClass(YuanzhengActivity.this, GuanyugengxinActivity.class);
-                                startActivity(intent6);
+                                Intent intent8 = new Intent();
+                                intent8.setClass(YuanzhengActivity.this, GuanyugengxinActivity.class);
+                                startActivity(intent8);
                                 break;
 
 

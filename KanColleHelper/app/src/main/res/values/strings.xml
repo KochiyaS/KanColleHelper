@@ -39,6 +39,8 @@
 
 
     <string name="title_activity_yuanzhengxinxi">YuanzhengxinxiActivity</string>
+    <string name="title_activity_xuanxiangshezhi">XuanxiangshezhiActivity</string>
+    <string name="title_activity_guanyugengxin">GuanyugengxinActivity</string>
 
     <string name="text_yuanzhengmingcheng">远征名称</string>
 
@@ -63,13 +65,52 @@
     <string name="daojushouyi">道具收益</string>
 
     <string name="title_activity_gengxin">GengxinActivity</string>
-    <string name="activity_title0">欢迎·帮助</string>
+    <string name="activity_title0">欢迎 · 帮助</string>
     <string name="activity_title22">远征模拟</string>
     <string name="textlei">类</string>
     <string name="yuanzhengbeizhu">远征备注</string>
-    <string name="activity_title6">关于·更新</string>
+    <string name="activity_title7">选项 · 设置</string>
+    <string name="activity_title8">关于 · 更新</string>
+
     <string name="title_activity_huanying">HuanyingActivity</string>
-    <string name="title_activity_settings">Settings</string>
+
+    <string-array name="pref_touxiang_list_titles">
+        <item>大潮改二</item>
+        <item>大潮改二</item>
+    </string-array>
+    <string-array name="pref_touxiang_list_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="pref_zhuti_list_titles">
+        <item>原版蓝</item>
+        <item>明石粉</item>
+        <item>夕张绿</item>
+        <item>皋月黄</item>
+        <item>大淀黑</item>
+    </string-array>
+    <string-array name="pref_zhuti_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="pref_gengxinshijian_list_titles">
+        <item>每次启动时</item>
+        <item>一天一次</item>
+        <item>三天一次</item>
+        <item>一周一次</item>
+    </string-array>
+    <string-array name="pref_gengxinshijian_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
 
     <!-- Strings related to Settings -->
 
@@ -128,7 +169,7 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
-    <string name="activity_title8">关于 · 更新</string>
+    <string name="title_activity_settings">Settings</string>
 
 
 </resources>

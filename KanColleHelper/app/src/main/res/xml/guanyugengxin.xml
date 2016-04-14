@@ -11,33 +11,29 @@
             android:summary="KanColleHelper">
         </Preference>
 
-       <Preference
+        <Preference
             android:title="当前版本"
             android:summary="2016/4/17 Ver.0.20 Release">
-       </Preference>
+        </Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="检查更新">
+        android:title="软件更新">
 
         <Preference
             android:key="gengxin"
-            android:title="自动更新"
-            android:summary="建议在wifi环境下执行该命令">
-            <intent
-                android:action="android.intent.action.MAIN"
-                android:targetPackage="com.android.settings"
-                android:targetClass="com.android.settings.wifi.WifiSettings" />
+            android:title="获取更新"
+            android:summary="新版本通常在「舰Colle」更新后一周左右发布">
         </Preference>
 
         <Preference
-            android:title="手动更新(百度网盘)"
-            android:summary="http://pan.baidu.com/s/1dDNTHxJ">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="http://pan.baidu.com/s/1dDNTHxJ">
-        </intent>
+            android:title="网盘备份"
+            android:summary="点击此处打开百度网盘的备份链接">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://pan.baidu.com/s/1dDNTHxJ">
+            </intent>
         </Preference>
     </PreferenceCategory>
 
@@ -61,24 +57,24 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="其他信息">
 
-    <Preference
-        android:title="联系作者"
-        android:summary="KochiyaSanae@outlook.com">
-    </Preference>
+        <Preference
+            android:title="联系作者"
+            android:summary="KochiyaSanae@outlook.com">
+        </Preference>
 
-    <Preference
-        android:title="免责声明"
-        android:summary="本app内容均收录自公开资料，如有侵权请联系作者">
-    </Preference>
+        <Preference
+            android:title="免责声明"
+            android:summary="本app内容均收录自公开资料，如有侵权请联系作者">
+        </Preference>
 
-    <Preference
-        android:title="查看源码"
-        android:summary="https://github.com/KochiyaS/KanColleHelper">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/KochiyaS/KanColleHelper">
-        </intent>
-    </Preference>
+        <Preference
+            android:title="查看源码"
+            android:summary="https://github.com/KochiyaS/KanColleHelper">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/KochiyaS/KanColleHelper">
+            </intent>
+        </Preference>
     </PreferenceCategory>
 
 </PreferenceScreen>

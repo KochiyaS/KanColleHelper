@@ -3,7 +3,6 @@ package com.kochiyasanae.kancollehelper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.StrictMode;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -21,12 +20,11 @@ import android.widget.Toast;
 
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 import com.kochiyasanae.kancollehelper.Fragment.UpgrateFragment.*;
+import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
+import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-
-import javax.security.auth.Destroyable;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -117,13 +115,17 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                                case R.id.nav_update:
-                                    Intent intent6 = new Intent();
-                                    intent6.setClass(MainActivity.this, GuanyugengxinActivity.class);
-                                    startActivity(intent6);
+                                case R.id.nav_setting:
+                                    Intent intent7 = new Intent();
+                                    intent7.setClass(MainActivity.this, XuanxiangshezhiActivity.class);
+                                    startActivity(intent7);
                                     break;
 
-
+                                case R.id.nav_update:
+                                    Intent intent8 = new Intent();
+                                    intent8.setClass(MainActivity.this, GuanyugengxinActivity.class);
+                                    startActivity(intent8);
+                                    break;
                             }
 
 

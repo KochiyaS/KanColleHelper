@@ -15,7 +15,7 @@
             android:id="@+id/nav_renwu"
             android:icon="@mipmap/ic_assignment_black_24dp"
             android:title="大淀的任务记录（未实装）"/>
-        >
+
         <item
             android:id="@+id/nav_yuanzheng"
             android:icon="@mipmap/ic_book_black_24dp"
@@ -32,12 +32,12 @@
             <item
                 android:id="@+id/nav_setting"
                 android:icon="@mipmap/ic_settings_black_24dp"
-                android:title="设置·选项（未实装）"/>
+                android:title="选项 · 设置"/>
             <item
 
                 android:id="@+id/nav_update"
                 android:icon="@mipmap/ic_system_update_alt_black_24dp"
-                android:title="关于·更新"/>
+                android:title="关于 · 更新"/>
 
 
 

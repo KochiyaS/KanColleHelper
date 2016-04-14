@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.kochiyasanae.kancollehelper">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -31,18 +34,25 @@
             android:label="@string/title_activity_yuanzhengxinxi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GengxinActivity"
-            android:label="@string/title_activity_gengxin"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".HuanyingActivity"
             android:label="@string/title_activity_huanying"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GuanyugengxinActivity"
-            android:label="@string/title_activity_gengxin"
+            android:name=".GuanyuShezhiActivity.XuanxiangshezhiActivity"
+            android:label="@string/title_activity_xuanxiangshezhi"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GuanyuShezhiActivity.GuanyugengxinActivity"
+            android:label="@string/title_activity_guanyugengxin"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <service
+            android:name="com.artwl.update.DownloadService"
+            android:exported="true" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

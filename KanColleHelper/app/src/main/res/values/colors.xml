@@ -2,14 +2,15 @@
 <resources>
     <color name="colorPrimary">#00b2ff</color>
     <color name="colorPrimaryDark">#00b2ff</color>
-    <color name="colorAccent">#8f8f8f</color>
-    <color name="status_bar_color">@color/colorPrimaryDark</color>
+    <color name="colorAccent">#00b2ff</color>
+
+
     <color name="white">#FFFFFF</color>
-    <color name="cardviewbackground">#e3dfd2</color>
-    <color name="cardviewbackgrounddark">#D6cabc</color>
     <color name="xingse">#45a9a2</color>
     <color name="red">#FF0000</color>
     <color name="fense">#ff8282</color>
     <color name="black">#000000</color>
+
+
 
 </resources>
