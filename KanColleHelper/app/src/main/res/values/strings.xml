@@ -9,7 +9,7 @@
     <string name="activity_title1">改修</string>
     <string name="sousuo">搜索</string>
     <string name="title_activity_gaixiuxinxi">GaixiuxinxiActivity</string>
-    <string name="activity_title2">远征</string>
+    <string name="activity_title4">远征</string>
     <string name="hello">hello</string>
 
     <string name="text_gaixiuzhushou">改修助手</string>
@@ -33,7 +33,7 @@
     <string name="title_activity_yuanzheng">YuanzhengActivity</string>
 
 
-    <string name="activity_title21">远征详情</string>
+    <string name="activity_title41">远征详情</string>
     <string name="activity_title11">改修详情</string>
     <string name="yuanzhengshijian">远征时间</string>
 
@@ -72,7 +72,15 @@
     <string name="activity_title7">选项 · 设置</string>
     <string name="activity_title8">关于 · 更新</string>
 
+    <string name="newUpdateAvailable">发现新版本</string>
+    <string name="dialogPositiveButton">立即下载</string>
+    <string name="dialogNegativeButton">以后再说</string>
+    <string name="app_no_new_update">没有发现新版本</string>
+    <string name="download_progress">正在下载:%1$d%%</string>
+    <string name="download_success">下载完成，点击安装</string>
+
     <string name="title_activity_huanying">HuanyingActivity</string>
+
 
     <string-array name="pref_touxiang_list_titles">
         <item>大潮改二</item>
@@ -110,7 +118,6 @@
         <item>3</item>
         <item>4</item>
     </string-array>
-
 
     <!-- Strings related to Settings -->
 

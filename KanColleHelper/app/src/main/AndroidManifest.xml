@@ -3,7 +3,6 @@
     package="com.kochiyasanae.kancollehelper">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -40,14 +39,15 @@
         <activity
             android:name=".GuanyuShezhiActivity.XuanxiangshezhiActivity"
             android:label="@string/title_activity_xuanxiangshezhi"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".GuanyuShezhiActivity.GuanyugengxinActivity"
             android:label="@string/title_activity_guanyugengxin"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <service
-            android:name="com.artwl.update.DownloadService"
+            android:name="com.kochiyasanae.kancollehelper.Unit.DownloadService"
             android:exported="true" />
 
         <activity

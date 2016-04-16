@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 <PreferenceCategory
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="夜间模式">
 
-    <SwitchPreference
+    <com.lb.material_preferences_library.custom_preferences.SwitchPreference
         android:defaultValue="false"
         android:key="chuannei_switch"
         android:summary="让川内陪你夜战吧"
         android:title="川内模式" />
 
-    <SwitchPreference
+    <com.lb.material_preferences_library.custom_preferences.SwitchPreference
         android:defaultValue="false"
         android:key="shentong_switch"
         android:summary="持续到第二天早晨六点神通和那珂起床为止"
@@ -26,24 +26,25 @@
     <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
           dismiss it. -->
     <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
-    <ListPreference
+    <com.lb.material_preferences_library.custom_preferences.ListPreference
         android:defaultValue="1"
-        android:entries="@array/pref_touxiang_list_titles"
-        android:entryValues="@array/pref_touxiang_list_values"
         android:key="touxiang_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:summary="江风改二，不来一发么？"
-        android:title="头像设置" />
+        android:summary="%s"
+        android:title="头像设置"
+        app:entries="@array/pref_touxiang_list_titles"
+        app:entryValues="@array/pref_touxiang_list_values"
+        />
 
-    <ListPreference
+    <com.lb.material_preferences_library.custom_preferences.ListPreference
         android:defaultValue="1"
-        android:entries="@array/pref_zhuti_list_titles"
-        android:entryValues="@array/pref_zhuti_list_values"
+        app:entries="@array/pref_zhuti_list_titles"
+        app:entryValues="@array/pref_zhuti_list_values"
         android:key="zhuti_list"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:summary="明石粉、夕张绿、皋月黄、大淀黑，总有一款适合你"
+        android:summary="%s"
         android:title="主题设置" />
 
 </PreferenceCategory>
@@ -53,18 +54,18 @@
         android:title="更新设置">
 
 
-        <SwitchPreference
+        <com.lb.material_preferences_library.custom_preferences.SwitchPreference
             android:defaultValue="true"
             android:key="gengxin_switch"
-            android:summary="只有在wifi模式下才会更新哦，请放心开启"
+            android:summary="仅在wifi模式下生效，请放心开启"
             android:title="自动更新" />
 
 
-        <ListPreference
+        <com.lb.material_preferences_library.custom_preferences.ListPreference
             android:defaultValue="3"
             android:title="更新间隔"
-            android:entries="@array/pref_gengxinshijian_list_titles"
-            android:entryValues="@array/pref_gengxinshijian_list_values"
+            app:entries="@array/pref_gengxinshijian_list_titles"
+            app:entryValues="@array/pref_gengxinshijian_list_values"
             android:key="gengxinjiange_list"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"

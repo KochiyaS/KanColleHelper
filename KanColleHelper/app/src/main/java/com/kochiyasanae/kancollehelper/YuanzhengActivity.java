@@ -1,7 +1,10 @@
 package com.kochiyasanae.kancollehelper;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -20,9 +23,11 @@ import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.*;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
+import com.kochiyasanae.kancollehelper.Unit.Statistics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class YuanzhengActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
@@ -35,14 +40,27 @@ public class YuanzhengActivity extends AppCompatActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+
+        final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+
+        if (nightmode) {
+            setTheme(R.style.AppTheme_Dark);
+        }
+        else {
+            setTheme(R.style.AppTheme_Light);
+
+        }
+
+    super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_yuanzheng);
     mViewPager = (ViewPager) findViewById(R.id.viewpager);
     mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main_drawer);
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    toolbar.setTitle(R.string.activity_title2);
-    setSupportActionBar(toolbar);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.activity_title4);
+        }
+        setSupportActionBar(toolbar);
 
     final ActionBar ab = getSupportActionBar();
         if (ab != null){
@@ -56,6 +74,7 @@ public class YuanzhengActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
+                        mDrawerLayout.closeDrawers();
 
                         switch (menuItem.getItemId()) {
 
@@ -63,8 +82,9 @@ public class YuanzhengActivity extends AppCompatActivity {
                             case R.id.nav_gaixiu:
 
                                 Intent intent1 = new Intent();
-                                intent1.setClass(YuanzhengActivity.this,MainActivity.class);
+                                intent1.setClass(YuanzhengActivity.this, MainActivity.class);
                                 startActivity(intent1);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 finish();
                                 break;
 
@@ -76,7 +96,12 @@ public class YuanzhengActivity extends AppCompatActivity {
                             case R.id.nav_setting:
                                 Intent intent7 = new Intent();
                                 intent7.setClass(YuanzhengActivity.this, XuanxiangshezhiActivity.class);
+                                Bundle bundle = new Bundle();
+                                bundle.putString("activity",getString(R.string.activity_title4)); //要传递的数据
+                                intent7.putExtras(bundle);
                                 startActivity(intent7);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                finish();
                                 break;
 
                             case R.id.nav_update:
@@ -91,15 +116,29 @@ public class YuanzhengActivity extends AppCompatActivity {
 
 
 
-                        mDrawerLayout.closeDrawers();
+
                         return true;
                     }
                 });
 
 
     }
-        initViewPager();
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            public void run() {
+                initViewPager();
+            }
+        };
+        handler.post(runnable);
+
 }
+
+
+
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

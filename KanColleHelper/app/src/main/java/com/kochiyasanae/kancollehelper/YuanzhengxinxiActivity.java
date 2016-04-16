@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +21,18 @@ public class YuanzhengxinxiActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
+        final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+
+        if (nightmode) {
+            setTheme(R.style.AppTheme_Dark);
+        }
+        else {
+            setTheme(R.style.AppTheme_Light);
+
+        }
+
         super.onCreate(savedInstanceState);
 
 
@@ -29,7 +42,9 @@ public class YuanzhengxinxiActivity extends AppCompatActivity {
         String mdata = this.getIntent().getExtras().getString("mdata");
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.activity_title21);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.activity_title41);
+        }
         setSupportActionBar(toolbar);
         final ActionBar ab = getSupportActionBar();
         if (ab != null) {
@@ -38,12 +53,14 @@ public class YuanzhengxinxiActivity extends AppCompatActivity {
             ab.setHomeButtonEnabled(true);
             ab.setHomeAsUpIndicator(R.mipmap.ic_arrow_back_white_24dp);
         }
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        if (toolbar != null) {
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
 
 
         final String sqlyuanzhengxinxi = "select bianhao,haiyu,mingcheng,nandu,haoshi2,haoshi3,xiaohaoran1,xiaohaodan1,tidujingyan,jianniangjingyan,shouyiran,shouyidan,shouyigang,shouyilv,jiangli11,jiangli12,jiangli21,jiangli22,qijiandengji,hejidengji,yuanzhengyaoqiu,yuanzhengbeizhu,xiaohaoran2,xiaohaoran3,xiaohaodan2,xiaohaodan3 from yuanzheng where mingcheng = ? ";

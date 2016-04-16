@@ -3,6 +3,7 @@ package com.kochiyasanae.kancollehelper;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -22,6 +23,7 @@ import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 import com.kochiyasanae.kancollehelper.Fragment.UpgrateFragment.*;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
+import com.kochiyasanae.kancollehelper.Unit.Statistics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +86,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.dl_main_drawer);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.activity_title1);
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.activity_title1);
+        }
         setSupportActionBar(toolbar);
 
         final ActionBar ab = getSupportActionBar();
@@ -100,25 +104,35 @@ public class MainActivity extends AppCompatActivity {
                     new NavigationView.OnNavigationItemSelectedListener() {
                         @Override
                         public boolean onNavigationItemSelected(MenuItem menuItem) {
+
+                            mDrawerLayout.closeDrawers();
+
                             switch (menuItem.getItemId()) {
                                 case R.id.nav_gaixiu:
 
 
-                                   break;
+                                    break;
                                 case R.id.nav_yuanzheng:
                                     Intent intent4 = new Intent();
                                     intent4.setClass(MainActivity.this, YuanzhengActivity.class);
                                     startActivity(intent4);
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                     finish();
                                     break;
-
-
 
 
                                 case R.id.nav_setting:
                                     Intent intent7 = new Intent();
                                     intent7.setClass(MainActivity.this, XuanxiangshezhiActivity.class);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("activity",getString(R.string.activity_title1)); //要传递的数据
+                                    intent7.putExtras(bundle);
                                     startActivity(intent7);
+
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                                    finish();
+
+
                                     break;
 
                                 case R.id.nav_update:
@@ -129,13 +143,20 @@ public class MainActivity extends AppCompatActivity {
                             }
 
 
-                            mDrawerLayout.closeDrawers();
                             return true;
                         }
                     });
         }
-        initViewPager();
+        Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            public void run() {
+                initViewPager();
+            }
+        };
+        handler.post(runnable);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

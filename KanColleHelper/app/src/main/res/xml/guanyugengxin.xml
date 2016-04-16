@@ -6,50 +6,50 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="软件信息">
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="舰娘助手"
             android:summary="KanColleHelper">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="当前版本"
             android:summary="2016/4/17 Ver.0.20 Release">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="软件更新">
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:key="gengxin"
             android:title="获取更新"
             android:summary="新版本通常在「舰Colle」更新后一周左右发布">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="网盘备份"
             android:summary="点击此处打开百度网盘的备份链接">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="http://pan.baidu.com/s/1dDNTHxJ">
             </intent>
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
     </PreferenceCategory>
 
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="开发进度">
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="开发中"
             android:summary="大淀的任务记录">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="已完成"
             android:summary="明石的改修日常、皋月的远征日记">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
     </PreferenceCategory>
 
@@ -57,24 +57,24 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="其他信息">
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="联系作者"
             android:summary="KochiyaSanae@outlook.com">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="免责声明"
             android:summary="本app内容均收录自公开资料，如有侵权请联系作者">
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
 
-        <Preference
+        <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="查看源码"
             android:summary="https://github.com/KochiyaS/KanColleHelper">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/KochiyaS/KanColleHelper">
             </intent>
-        </Preference>
+        </com.lb.material_preferences_library.custom_preferences.Preference>
     </PreferenceCategory>
 
 </PreferenceScreen>
