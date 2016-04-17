@@ -36,8 +36,13 @@ public class XuanxiangshezhiFragment extends PreferenceFragment {
                 }
             });
 
-
-
+            findPreference("zhuti_list").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(final Preference preference, final Object newValue) {
+                    restartActivity();
+                    return true;
+                }
+            });
 
         }
 

@@ -17,6 +17,7 @@ import com.kochiyasanae.kancollehelper.Fragment.GuanyuShezhiFragment.Xuanxiangsh
 import com.kochiyasanae.kancollehelper.HuanyingActivity;
 import com.kochiyasanae.kancollehelper.MainActivity;
 import com.kochiyasanae.kancollehelper.R;
+import com.kochiyasanae.kancollehelper.RenwuActivity;
 import com.kochiyasanae.kancollehelper.YuanzhengActivity;
 
 /**
@@ -30,12 +31,33 @@ public class XuanxiangshezhiActivity extends AppCompatActivity {
 
 
         final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+        final int zhuti = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("zhuti_list","1"));
 
         if (nightmode) {
             setTheme(R.style.AppTheme_Dark);
         }
         else{
-                setTheme(R.style.AppTheme_Light);
+
+            switch (zhuti){
+                case 1:
+                    setTheme(R.style.AppTheme_Light);
+                    break;
+                case 2:
+                    setTheme(R.style.mingshifen);
+                    break;
+                case 3:
+                    setTheme(R.style.xizhanglv);
+                    break;
+                case 4:
+                    setTheme(R.style.gaoyuehuang);
+                    break;
+                case 5:
+                    setTheme(R.style.dadianlan);
+                    break;
+
+
+            }
+
 
         }
 
@@ -49,7 +71,6 @@ public class XuanxiangshezhiActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("ACTIVITY", activity);
                 editor.commit();
-
 
         }
 
@@ -101,6 +122,15 @@ public class XuanxiangshezhiActivity extends AppCompatActivity {
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                     finish();
                     break;
+
+                case "任务":
+                    Intent intent3 = new Intent();
+                    intent3.setClass(XuanxiangshezhiActivity.this, RenwuActivity.class);
+                    startActivity(intent3);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    finish();
+                    break;
+
                 case "远征":
                     Intent intent4 = new Intent();
                     intent4.setClass(XuanxiangshezhiActivity.this, YuanzhengActivity.class);

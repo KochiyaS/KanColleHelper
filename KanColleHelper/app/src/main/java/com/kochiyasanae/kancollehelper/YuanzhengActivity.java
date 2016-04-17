@@ -1,6 +1,7 @@
 package com.kochiyasanae.kancollehelper;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,6 +17,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
@@ -32,8 +36,8 @@ import java.util.Locale;
 public class YuanzhengActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ViewPager mViewPager;
-    private TabLayout mTabLayout;
     private MyDatabaseHelper dbhelper;
+
 
     public FragmentAdapter mFragmentAdapteradapter;
     private List<Fragment> fragment = null;
@@ -41,16 +45,37 @@ public class YuanzhengActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
 
-        final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+        final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch", false);
+        final int zhuti = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("zhuti_list", "1"));
+
 
         if (nightmode) {
             setTheme(R.style.AppTheme_Dark);
         }
-        else {
-            setTheme(R.style.AppTheme_Light);
+        else{
+
+            switch (zhuti){
+                case 1:
+                    setTheme(R.style.AppTheme_Light);
+                    break;
+                case 2:
+                    setTheme(R.style.mingshifen);
+                    break;
+                case 3:
+                    setTheme(R.style.xizhanglv);
+                    break;
+                case 4:
+                    setTheme(R.style.gaoyuehuang);
+                    break;
+                case 5:
+                    setTheme(R.style.dadianlan);
+                    break;
+
+
+            }
+
 
         }
-
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_yuanzheng);
     mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -67,9 +92,43 @@ public class YuanzhengActivity extends AppCompatActivity {
         ab.setHomeAsUpIndicator(R.mipmap.ic_menu_white_24dp);
     ab.setDisplayHomeAsUpEnabled(true);}
 
-    NavigationView navigationView =
+
+
+        NavigationView navigationView =
             (NavigationView) findViewById(R.id.nv_main_navigation);
-    if (navigationView != null) {
+        View headerView = navigationView.getHeaderView(0);
+        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "1"));
+        ImageView mImageView = (ImageView) headerView.findViewById(R.id.kancollehelper);
+        TextView mTextView = (TextView) headerView.findViewById(R.id.kancollehelper1);
+        switch (touxiang){
+            case 1:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_dachao_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_dachao_gaier);
+                break;
+            case 2:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xia_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xia_gaier);
+                break;
+            case 3:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xiao_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xiao_gaier);
+                break;
+            case 4:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xiang_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xiang_gaier);
+                break;
+
+        }
+
+        if (navigationView != null) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -84,9 +143,17 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent();
                                 intent1.setClass(YuanzhengActivity.this, MainActivity.class);
                                 startActivity(intent1);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 finish();
                                 break;
+
+                /*            case R.id.nav_renwu:
+
+                                Intent intent3 = new Intent();
+                                intent3.setClass(YuanzhengActivity.this, RenwuActivity.class);
+                                startActivity(intent3);
+                                                             finish();
+                                break;*/
+
 
                             case R.id.nav_yuanzheng:
                                 break;
@@ -100,7 +167,6 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 bundle.putString("activity",getString(R.string.activity_title4)); //要传递的数据
                                 intent7.putExtras(bundle);
                                 startActivity(intent7);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                 finish();
                                 break;
 
@@ -108,18 +174,19 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent8 = new Intent();
                                 intent8.setClass(YuanzhengActivity.this, GuanyugengxinActivity.class);
                                 startActivity(intent8);
+
                                 break;
 
 
 
                         }
 
-
-
-
                         return true;
                     }
                 });
+
+
+
 
 
     }
@@ -172,7 +239,7 @@ public class YuanzhengActivity extends AppCompatActivity {
 
 
     private void initViewPager() {
-        mTabLayout = (TabLayout) findViewById(R.id.tabs);
+        TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
         List<String> titles = new ArrayList<>();
         titles.add("镇守府海域");

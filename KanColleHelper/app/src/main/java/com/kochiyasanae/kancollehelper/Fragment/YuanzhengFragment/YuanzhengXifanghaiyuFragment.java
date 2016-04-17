@@ -93,6 +93,8 @@ public class YuanzhengXifanghaiyuFragment extends Fragment{
                 bundle.putString("mdata", data); //要传递的数据
                 intent.putExtras(bundle);
                 startActivity(intent);
+
+
             }
         });
 

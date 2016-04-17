@@ -6,10 +6,12 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="drawer_opwn">open drawer</string>
     <string name="drawer_close">close drawer</string>
-    <string name="activity_title1">改修</string>
     <string name="sousuo">搜索</string>
-    <string name="title_activity_gaixiuxinxi">GaixiuxinxiActivity</string>
+    <string name="activity_title1">改修</string>
+    <string name="activity_title2">图鉴</string>
+    <string name="activity_title3">任务</string>
     <string name="activity_title4">远征</string>
+    <string name="activity_title5">侦察</string>
     <string name="hello">hello</string>
 
     <string name="text_gaixiuzhushou">改修助手</string>
@@ -30,20 +32,22 @@
     <string name="text_lingxing">★+0~★+6</string>
     <string name="text_liuxin">★+6~★max</string>
     <string name="text_shengji">★进化升级</string>
-    <string name="title_activity_yuanzheng">YuanzhengActivity</string>
 
 
     <string name="activity_title41">远征详情</string>
+    <string name="activity_title31">任务详情</string>
     <string name="activity_title11">改修详情</string>
     <string name="yuanzhengshijian">远征时间</string>
 
-
+    <string name="title_activity_yuanzheng">YuanzhengActivity</string>
+    <string name="title_activity_gaixiuxinxi">GaixiuxinxiActivity</string>
     <string name="title_activity_yuanzhengxinxi">YuanzhengxinxiActivity</string>
     <string name="title_activity_xuanxiangshezhi">XuanxiangshezhiActivity</string>
     <string name="title_activity_guanyugengxin">GuanyugengxinActivity</string>
+    <string name="title_activity_huanying">HuanyingActivity</string>
+    <string name="title_activity_renwuzheng">RenwuActivity</string>
 
     <string name="text_yuanzhengmingcheng">远征名称</string>
-
     <string name="text_yuanzhengbianhao">远征编号</string>
     <string name="text_yuanzhenghaiyu">目标海域</string>
     <string name="text_yuanzhengxiaohao">远征消耗</string>
@@ -64,7 +68,6 @@
     <string name="ziyuanshouyi">资源收益</string>
     <string name="daojushouyi">道具收益</string>
 
-    <string name="title_activity_gengxin">GengxinActivity</string>
     <string name="activity_title0">欢迎 · 帮助</string>
     <string name="activity_title22">远征模拟</string>
     <string name="textlei">类</string>
@@ -79,24 +82,15 @@
     <string name="download_progress">正在下载:%1$d%%</string>
     <string name="download_success">下载完成，点击安装</string>
 
-    <string name="title_activity_huanying">HuanyingActivity</string>
 
 
-    <string-array name="pref_touxiang_list_titles">
-        <item>大潮改二</item>
-        <item>大潮改二</item>
-    </string-array>
-    <string-array name="pref_touxiang_list_values">
-        <item>1</item>
-        <item>2</item>
-    </string-array>
 
     <string-array name="pref_zhuti_list_titles">
         <item>原版蓝</item>
         <item>明石粉</item>
         <item>夕张绿</item>
         <item>皋月黄</item>
-        <item>大淀黑</item>
+        <item>大淀蓝</item>
     </string-array>
     <string-array name="pref_zhuti_list_values">
         <item>1</item>
@@ -104,79 +98,27 @@
         <item>3</item>
         <item>4</item>
         <item>5</item>
-    </string-array>
+    </string-array >
 
-    <string-array name="pref_gengxinshijian_list_titles">
-        <item>每次启动时</item>
-        <item>一天一次</item>
-        <item>三天一次</item>
-        <item>一周一次</item>
+    <string-array name="pref_touxiang_list_titles">
+        <item>大潮改二</item>
+        <item>霞改二</item>
+        <item>晓改二</item>
+        <item>Верный</item>
     </string-array>
-    <string-array name="pref_gengxinshijian_list_values">
+    <string-array name="pref_touxiang_list_values">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
     </string-array>
 
-    <!-- Strings related to Settings -->
 
-    <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
+    <string name="wenhou_dachao_gaier">“司令官，最近怎么样？过得还充实吗？！”</string>
+    <string name="wenhou_xia_gaier">“你不在的话也会寂寞的……不，才不是！”</string>
+    <string name="wenhou_xiao_gaier">“司令官，这么一直看着我的话……！”</string>
+    <string name="wenhou_xiang_gaier">“司令官，恋情跟爱情……是什么呢……”</string>
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
-    <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
-
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
-    <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
-
-    <string name="pref_title_new_message_notifications">New message notifications</string>
-
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
-
-    <string name="pref_title_vibrate">Vibrate</string>
-    <string name="title_activity_settings">Settings</string>
 
 
 </resources>

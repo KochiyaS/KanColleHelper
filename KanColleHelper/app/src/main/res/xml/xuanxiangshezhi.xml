@@ -2,23 +2,6 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<PreferenceCategory
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="夜间模式">
-
-    <com.lb.material_preferences_library.custom_preferences.SwitchPreference
-        android:defaultValue="false"
-        android:key="chuannei_switch"
-        android:summary="让川内陪你夜战吧"
-        android:title="川内模式" />
-
-    <com.lb.material_preferences_library.custom_preferences.SwitchPreference
-        android:defaultValue="false"
-        android:key="shentong_switch"
-        android:summary="持续到第二天早晨六点神通和那珂起床为止"
-        android:title="持续时间" />
-
-</PreferenceCategory>
 
 <PreferenceCategory
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -51,6 +34,21 @@
 
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="夜间模式">
+
+        <com.lb.material_preferences_library.custom_preferences.SwitchPreference
+            android:defaultValue="false"
+            android:key="chuannei_switch"
+            android:summary="让川内陪你夜战吧"
+            android:title="川内模式" />
+
+
+    </PreferenceCategory>
+
+
+
+    <PreferenceCategory
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="更新设置">
 
 
@@ -61,16 +59,6 @@
             android:title="自动更新" />
 
 
-        <com.lb.material_preferences_library.custom_preferences.ListPreference
-            android:defaultValue="3"
-            android:title="更新间隔"
-            app:entries="@array/pref_gengxinshijian_list_titles"
-            app:entryValues="@array/pref_gengxinshijian_list_values"
-            android:key="gengxinjiange_list"
-            android:negativeButtonText="@null"
-            android:positiveButtonText="@null"
-            android:summary="推荐设置为三天一次"
-        />
 
     </PreferenceCategory>
 

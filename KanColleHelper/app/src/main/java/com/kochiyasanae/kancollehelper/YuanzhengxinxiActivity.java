@@ -22,14 +22,34 @@ public class YuanzhengxinxiActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+        final int zhuti = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("zhuti_list", "1"));
 
         if (nightmode) {
             setTheme(R.style.AppTheme_Dark);
         }
-        else {
-            setTheme(R.style.AppTheme_Light);
+        else{
+
+            switch (zhuti){
+                case 1:
+                    setTheme(R.style.AppTheme_Light);
+                    break;
+                case 2:
+                    setTheme(R.style.mingshifen);
+                    break;
+                case 3:
+                    setTheme(R.style.xizhanglv);
+                    break;
+                case 4:
+                    setTheme(R.style.gaoyuehuang);
+                    break;
+                case 5:
+                    setTheme(R.style.dadianlan);
+                    break;
+
+
+            }
+
 
         }
 
@@ -300,5 +320,7 @@ public class YuanzhengxinxiActivity extends AppCompatActivity {
 
 
     }
+
+
 
 }

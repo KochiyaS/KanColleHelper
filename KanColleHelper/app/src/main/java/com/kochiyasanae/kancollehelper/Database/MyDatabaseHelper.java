@@ -17,6 +17,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String Create_Yuanzheng="create table Yuanzheng(id integer primary key autoincrement,bianhao text,haiyu text,mingcheng text,nandu text,haoshi1 text,haoshi2 text,haoshi3 integer,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,jiangli11 text,jiangli12 integer,jiangli21 text,jiangli22 integer,tidujingyan integer,jianniangjingyan integer,qijiandengji integer,hejidengji integer,yuanzhengyaoqiu text,yuanzhengbeizhu text,xiaohaoran1 text,xiaohaoran2 integer,xiaohaoran3 integer,xiaohaodan1 text,xiaohaodan2 integer,xiaohaodan3 integer,suoshujiandui text,yuanzhengcishu integer)";
 //    public static final String Create_Yuanzhengdui="create table Yuanzhengdui(id integer primary key autoincrement,yuanzhengdui text,yuanzhengpeizhi text,dafadongting integer)";
 
+    public static final String Create_Renwu="create table Gaixiu(id integer primary key autoincrement,leibie1 text,leibie2 text,mingcheng text,mubiao1 text,mubiao2 text,ran integer,dan integer,gang integer,lv integer,zicai1 text,luosi1 text,zhuangbei1 text,zicai2 text,luosi2 text,zhuangbei2 text,zicai3 text,luosi3 text,zhuangbei3 text,gaixiujian text,zhouri text,zhouyi text,zhouer text,zhousan text,zhousi text,zhouwu text,zhouliu text,youxianji integer,guanzhuxinpin text)";
 
 
 
@@ -39,6 +40,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(Create_Gaixiu);
         db.execSQL(Create_Yuanzheng);
 //        db.execSQL(Create_Yuanzhengdui);
+//        db.execSQL(Create_Renwu);
 
 
         db.beginTransaction();
@@ -147,13 +149,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO Yuanzheng VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
 
 
-
-
-
-
- //       db.execSQL("INSERT INTO Yuanzhengdui VALUES ('1','第二远征队','常规配置','0')");
+  //      db.execSQL("INSERT INTO Yuanzhengdui VALUES ('1','第二远征队','常规配置','0')");
   //      db.execSQL("INSERT INTO Yuanzhengdui VALUES ('2','第三远征队','大成功配置','3')");
   //      db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
+
+
+  //      db.execSQL("INSERT INTO Renwu VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
+   //     db.execSQL("INSERT INTO Renwu VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
+
+
 
 
         db.setTransactionSuccessful();
@@ -219,19 +223,24 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL("INSERT INTO Yuanzheng VALUES ('38','远征38','南方海域','东京急行(二)','S','2小时55分钟','02:55','175','420','0','200','0','家具箱(小)','1',null,null,'50','70','65','240','全部6只，驱逐舰×5，自由舰×1，至少4只舰娘各装备2只鼓桶(运输用)。','该远征拥有较高的燃料、钢材收益，并推荐采用“四闪八桶”的大成功配置。','80%','80','90','80%','104','117',null,null)");
                 db.execSQL("INSERT INTO Yuanzheng VALUES ('39','远征39','南方海域','远洋潜水艇作战','S','30小时0分钟','30:00','1800','0','0','300','0','高速修复材','2','家具箱(小)','1','130','160','3','180','最低5只，潜水母舰(大鲸)×1，潜水艇(潜水航母)×4。',null,'90%','68','86','90%','81','110',null,null)");
                 db.execSQL("INSERT INTO Yuanzheng VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
-
-
-
-
-
-
-                //               db.execSQL(Create_Yuanzhengdui);
+ //               db.execSQL(Create_Yuanzhengdui);
  //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('1','第二远征队','常规配置','0')");
  //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('2','第三远征队','大成功配置','3')");
  //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
-
                 db.setTransactionSuccessful();
                 db.endTransaction();
+
+
+            case 3:
+
+
+
+
+
+
+
+
+
             default:
 
 

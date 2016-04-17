@@ -3,6 +3,7 @@
     package="com.kochiyasanae.kancollehelper">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -29,6 +30,10 @@
             android:label="@string/title_activity_yuanzheng"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".RenwuActivity"
+            android:label="@string/title_activity_renwuzheng"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".YuanzhengxinxiActivity"
             android:label="@string/title_activity_yuanzhengxinxi"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -50,9 +55,6 @@
             android:name="com.kochiyasanae.kancollehelper.Unit.DownloadService"
             android:exported="true" />
 
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

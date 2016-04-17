@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -17,13 +19,15 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
-import com.kochiyasanae.kancollehelper.Fragment.UpgrateFragment.*;
+import com.kochiyasanae.kancollehelper.Fragment.GaixiuFragment.*;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
-import com.kochiyasanae.kancollehelper.Unit.Statistics;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,11 @@ public class MainActivity extends AppCompatActivity {
     private TabLayout mTabLayout;
     private MyDatabaseHelper dbhelper;
     public static int databasevesion=3;
-    static int NewAPPVesion=3;
+    static int NewAPPVesion=24;
+    public static final String APP_UPDATE_SERVER_URL = "https://raw.githubusercontent.com/KochiyaS/KancolleHelperUpdate/master/UpdateInformation.json";
+    public static final boolean APK_IS_AUTO_INSTALL = false;
+
+
     public FragmentAdapter mFragmentAdapteradapter;
     private List<Fragment> fragment = null;
 
@@ -47,7 +55,39 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
+
+        final boolean nightmode= PreferenceManager.getDefaultSharedPreferences(this).getBoolean("chuannei_switch",false);
+        final int zhuti = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("zhuti_list", "1"));
+
+        if (nightmode) {
+            setTheme(R.style.AppTheme_Dark);
+        }
+        else{
+
+            switch (zhuti){
+                case 1:
+                    setTheme(R.style.AppTheme_Light);
+                    break;
+                case 2:
+                    setTheme(R.style.mingshifen);
+                    break;
+                case 3:
+                    setTheme(R.style.xizhanglv);
+                    break;
+                case 4:
+                    setTheme(R.style.gaoyuehuang);
+                    break;
+                case 5:
+                    setTheme(R.style.dadianlan);
+                    break;
+
+
+            }
+
+
+        }
+
+        super.onCreate(savedInstanceState);
 
 
 //数据库建立
@@ -99,6 +139,38 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView =
                 (NavigationView) findViewById(R.id.nv_main_navigation);
 
+        View headerView = navigationView.getHeaderView(0);
+        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "1"));
+        ImageView mImageView = (ImageView) headerView.findViewById(R.id.kancollehelper);
+        TextView mTextView = (TextView) headerView.findViewById(R.id.kancollehelper1);
+        switch (touxiang){
+            case 1:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_dachao_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_dachao_gaier);
+                break;
+            case 2:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xia_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xia_gaier);
+                break;
+            case 3:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xiao_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xiao_gaier);
+                break;
+            case 4:
+                assert mImageView != null;
+                mImageView.setImageResource(R.mipmap.touxiang_xiang_gaier);
+                assert mTextView != null;
+                mTextView.setText(R.string.wenhou_xiang_gaier);
+                break;
+
+        }
+
         if (navigationView != null) {
             navigationView.setNavigationItemSelectedListener(
                     new NavigationView.OnNavigationItemSelectedListener() {
@@ -112,11 +184,19 @@ public class MainActivity extends AppCompatActivity {
 
 
                                     break;
+
+                 /*               case R.id.nav_renwu:
+                                    Intent intent3 = new Intent();
+                                    intent3.setClass(MainActivity.this, RenwuActivity.class);
+                                    startActivity(intent3);
+
+                                    finish();
+                                    break;*/
+
                                 case R.id.nav_yuanzheng:
                                     Intent intent4 = new Intent();
                                     intent4.setClass(MainActivity.this, YuanzhengActivity.class);
                                     startActivity(intent4);
-                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                     finish();
                                     break;
 
@@ -129,7 +209,6 @@ public class MainActivity extends AppCompatActivity {
                                     intent7.putExtras(bundle);
                                     startActivity(intent7);
 
-                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
                                     finish();
 
 
@@ -139,6 +218,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent8 = new Intent();
                                     intent8.setClass(MainActivity.this, GuanyugengxinActivity.class);
                                     startActivity(intent8);
+
                                     break;
                             }
 
@@ -147,14 +227,26 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
         }
+
+
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
             public void run() {
                 initViewPager();
+
+
+
+
+
             }
         };
         handler.post(runnable);
+
+
     }
+
+
+
 
 
 
@@ -186,6 +278,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
 
     private void initViewPager() {
         mTabLayout = (TabLayout) findViewById(R.id.tabs);

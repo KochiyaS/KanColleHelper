@@ -14,8 +14,8 @@
     card_view:cardElevation="2dp"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    card_view:cardBackgroundColor="@color/white">
-    >
+    card_view:cardBackgroundColor="?attr/card_bg">
+
 
 
     <LinearLayout

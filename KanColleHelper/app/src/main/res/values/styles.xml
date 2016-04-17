@@ -25,6 +25,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="card_bg">@color/white</item>
         <item name="actionBarTheme">@style/AppTheme.ActionBarTheme.Light</item>
 
     </style>
@@ -35,6 +36,7 @@
         <item name="colorPrimary">@color/colorPrimaryNight</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDarkNight</item>
         <item name="colorAccent">@color/colorAccentNight</item>
+        <item name="card_bg">@color/dark</item>
         <item name="actionBarTheme">@style/AppTheme.ActionBarTheme.Dark</item>
     </style>
 
@@ -45,5 +47,30 @@
     <style name="AppTheme.ActionBarTheme.Dark" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
     </style>
+
+    <style name="mingshifen" parent="AppTheme.Light">
+        <item name="colorPrimary">@color/colorMingshifen</item>
+        <item name="colorPrimaryDark">@color/colorMingshifen</item>
+        <item name="colorAccent">@color/colorMingshifen</item>
+    </style>
+
+    <style name="xizhanglv" parent="AppTheme.Light">
+        <item name="colorPrimary">@color/colorXizhanglv</item>
+        <item name="colorPrimaryDark">@color/colorXizhanglv</item>
+        <item name="colorAccent">@color/colorXizhanglv</item>
+    </style>
+
+    <style name="gaoyuehuang" parent="AppTheme.Light">
+        <item name="colorPrimary">@color/colorGaoyuehuang</item>
+        <item name="colorPrimaryDark">@color/colorGaoyuehuang</item>
+        <item name="colorAccent">@color/colorGaoyuehuang</item>
+    </style>
+
+    <style name="dadianlan" parent="AppTheme.Light">
+        <item name="colorPrimary">@color/colorDadianlan</item>
+        <item name="colorPrimaryDark">@color/colorDadianlan</item>
+        <item name="colorAccent">@color/colorDadianlan</item>
+    </style>
+
 
 </resources>

@@ -19,11 +19,11 @@
 
     <PreferenceCategory
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:title="软件更新">
+        android:title="获取更新">
 
         <com.lb.material_preferences_library.custom_preferences.Preference
             android:key="gengxin"
-            android:title="获取更新"
+            android:title="手动更新"
             android:summary="新版本通常在「舰Colle」更新后一周左右发布">
         </com.lb.material_preferences_library.custom_preferences.Preference>
 
