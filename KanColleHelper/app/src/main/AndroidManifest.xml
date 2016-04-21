@@ -38,6 +38,11 @@
             android:label="@string/title_activity_yuanzhengxinxi"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".RenwuxinxiActivity"
+            android:label="@string/title_activity_renwuxinxi"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
             android:name=".HuanyingActivity"
             android:label="@string/title_activity_huanying"
             android:theme="@style/AppTheme.NoActionBar" />

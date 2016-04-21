@@ -172,5 +172,6 @@ public class GaixiuFupaoFragment extends Fragment {
         });
 
 
+
     }
 }

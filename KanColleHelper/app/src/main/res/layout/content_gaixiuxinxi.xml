@@ -40,7 +40,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
 
 
 
@@ -288,7 +289,8 @@
                             android:orientation="horizontal"
                             android:layout_marginLeft="@dimen/text_view_margin_left"
                             android:layout_marginStart="@dimen/text_view_margin_left"
-                            android:layout_marginTop="@dimen/textview_margin_top2">
+                            android:layout_marginTop="@dimen/textview_margin_top2"
+                            android:baselineAligned="false">
 
 
                             <LinearLayout
@@ -484,9 +486,7 @@
                                 android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
                                 android:textSize="@dimen/middle_text_size"
                                 android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
+                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
                                 </LinearLayout>
 
 

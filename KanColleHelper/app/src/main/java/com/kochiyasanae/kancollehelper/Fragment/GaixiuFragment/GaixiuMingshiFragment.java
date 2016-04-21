@@ -335,31 +335,11 @@ public class GaixiuMingshiFragment extends Fragment {
 
 
 
-        Handler handler = new Handler();
-        Runnable runnable = new Runnable() {
-            public void run() {
-                final boolean gengxinmode= PreferenceManager.getDefaultSharedPreferences(getContext()).getBoolean("gengxin_switch",true);
-
-                if(isWifi(getContext())&&gengxinmode){
-                    UpdateChecker.checkForDialog(getActivity(), MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
-                }
-            }
-        };
-        handler.post(runnable);
 
     }
 
 
-    public static boolean isWifi(Context mContext) {
-        ConnectivityManager connectivityManager = (ConnectivityManager) mContext
-                .getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
-        if (activeNetInfo != null
-                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            return true;
-        }
-        return false;
-    }
+
 
 }
 

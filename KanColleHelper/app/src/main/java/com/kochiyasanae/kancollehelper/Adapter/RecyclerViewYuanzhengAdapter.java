@@ -38,7 +38,7 @@ public class RecyclerViewYuanzhengAdapter extends RecyclerView.Adapter<RecyclerV
     }
 
 //第一步，声名数值
-public List<String> mdatas;
+    public List<String> mdatas;
     public List<String> mdatas1;
     public List<String> mdatas2;
     public List<String> mdatas3;

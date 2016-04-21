@@ -146,13 +146,13 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 finish();
                                 break;
 
-                /*            case R.id.nav_renwu:
+                            case R.id.nav_renwu:
 
                                 Intent intent3 = new Intent();
                                 intent3.setClass(YuanzhengActivity.this, RenwuActivity.class);
                                 startActivity(intent3);
-                                                             finish();
-                                break;*/
+                                finish();
+                                break;
 
 
                             case R.id.nav_yuanzheng:

@@ -46,6 +46,8 @@
     <string name="title_activity_guanyugengxin">GuanyugengxinActivity</string>
     <string name="title_activity_huanying">HuanyingActivity</string>
     <string name="title_activity_renwuzheng">RenwuActivity</string>
+    <string name="title_activity_renwuxinxi">RenwuxinxiActivity</string>
+
 
     <string name="text_yuanzhengmingcheng">远征名称</string>
     <string name="text_yuanzhengbianhao">远征编号</string>
@@ -118,7 +120,7 @@
     <string name="wenhou_xia_gaier">“你不在的话也会寂寞的……不，才不是！”</string>
     <string name="wenhou_xiao_gaier">“司令官，这么一直看着我的话……！”</string>
     <string name="wenhou_xiang_gaier">“司令官，恋情跟爱情……是什么呢……”</string>
-
+    <string name="renwujianbao">任务简报</string>
 
 
 </resources>

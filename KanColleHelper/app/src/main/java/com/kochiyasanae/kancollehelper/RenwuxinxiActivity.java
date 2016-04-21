@@ -1,11 +1,15 @@
 package com.kochiyasanae.kancollehelper;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -54,7 +58,7 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.activity_yuanzhengxinxi);
+        setContentView(R.layout.activity_renwuxinxi);
 
 
         String mdata = this.getIntent().getExtras().getString("mdata");
@@ -81,115 +85,149 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         }
 
 
-        final String sqlyuanzhengxinxi = "select bianhao,haiyu,mingcheng,nandu,haoshi2,haoshi3,xiaohaoran1,xiaohaodan1,tidujingyan,jianniangjingyan,shouyiran,shouyidan,shouyigang,shouyilv,jiangli11,jiangli12,jiangli21,jiangli22,qijiandengji,hejidengji,yuanzhengyaoqiu,yuanzhengbeizhu,xiaohaoran2,xiaohaoran3,xiaohaodan2,xiaohaodan3 from yuanzheng where mingcheng = ? ";
+        final String sqlrenwuxinxi = "select bianhao,leibie1,leibie2,mingcheng,xiangximiaoshu,renwubeizhu,shouyiran,shouyidan,shouyigang,shouyilv,daojushouyi1,daojushuliang1,daojushouyi2,daojushuliang2,qitashouyi,qianzhibianhao1,qianzhirenwu1,qianzhibianhao2,qianzhirenwu2,qitaneirong from renwu where bianhao = ? ";
 
         dbhelper = new MyDatabaseHelper(this, "GaixiuDB", null, MainActivity.databasevesion);
         final SQLiteDatabase db = dbhelper.getReadableDatabase();
-        Cursor c = db.rawQuery(sqlyuanzhengxinxi, new String[]{mdata});
-        String yuanzhengbianhao = null;
-        String yuanzhenghaiyu = null;
-        String yuanzhengmingcheng = null;
-        String yuanzhengnandu = null;
-        String yuanzhengshijian = null;
-        String yuanzhengxiaohaoran = null;
-        String yuanzhengxiaohaodan = null;
-        String yuanzhengtidujingyan = null;
-        String yuanzhengjianniangjingyan = null;
-        Integer yuanzhengran = null;
-        Integer yuanzhengdan = null;
-        Integer yuanzhenggang = null;
-        Integer yuanzhenglv = null;
-        String yuanzhengjiangli11 = null;
-        Integer yuanzhengjiangli12 = null;
-        String yuanzhengjiangli21 = null;
-        Integer yuanzhengjiangli22 = null;
+        Cursor c = db.rawQuery(sqlrenwuxinxi, new String[]{mdata});
+        String renwubianhao = null;
+        String renwuleibie1 = null;
+        String renwuleibie2 = null;
+        String renwumingcheng = null;
+        String renwushuoming = null;
+        String renwubeizhu = null;
+        Integer shouyiran = null;
+        Integer shouyidan = null;
+        Integer shouyigang = null;
+        Integer shouyilv = null;
+        String daojushouyi1 = null;
+        Integer daojushuliang1 = null;
+        String daojushouyi2 = null;
+        Integer daojushuliang2 = null;
 
-        String qijiandengji = null;
-        String hejidengji = null;
-        String yuanzhengpeizhi = null;
-        String yuanzhengbeizhu = null;
+        String qianzhibianhao1 = null;
+        String qianzhirenwu1 = null;
+        String qianzhibianhao2 = null;
+        String qianzhirenwu2 = null;
 
-        Integer haoshi3 = null;
-        Integer xiaohaoran2 = null;
-        Integer xiaohaoran3 = null;
-        Integer xiaohaodan2 = null;
-        Integer xiaohaodan3 = null;
+        String qitaneirong = null;
 
         while (c.moveToNext()) {
-            yuanzhengbianhao = c.getString(c.getColumnIndex("bianhao"));
-            yuanzhenghaiyu = c.getString(c.getColumnIndex("haiyu"));
-            yuanzhengmingcheng = c.getString(c.getColumnIndex("mingcheng"));
-            yuanzhengnandu = c.getString(c.getColumnIndex("nandu"));
-            yuanzhengshijian = c.getString(c.getColumnIndex("haoshi2"));
-            haoshi3=c.getInt(c.getColumnIndex("haoshi3"));
-            yuanzhengxiaohaoran = c.getString(c.getColumnIndex("xiaohaoran1"));
-            yuanzhengxiaohaodan = c.getString(c.getColumnIndex("xiaohaodan1"));
-            yuanzhengtidujingyan = c.getString(c.getColumnIndex("tidujingyan"));
-            yuanzhengjianniangjingyan = c.getString(c.getColumnIndex("jianniangjingyan"));
+            renwubianhao = c.getString(c.getColumnIndex("bianhao"));
+            renwuleibie1 = c.getString(c.getColumnIndex("leibie1"));
+            renwuleibie2 = c.getString(c.getColumnIndex("leibie2"));
+            renwumingcheng = c.getString(c.getColumnIndex("mingcheng"));
+            renwushuoming = c.getString(c.getColumnIndex("xiangximiaoshu"));
+            renwubeizhu = c.getString(c.getColumnIndex("renwubeizhu"));
 
-            yuanzhengran = c.getInt(c.getColumnIndex("shouyiran"));
-            yuanzhengdan = c.getInt(c.getColumnIndex("shouyidan"));
-            yuanzhenggang = c.getInt(c.getColumnIndex("shouyigang"));
-            yuanzhenglv = c.getInt(c.getColumnIndex("shouyilv"));
+            shouyiran = c.getInt(c.getColumnIndex("shouyiran"));
+            shouyidan = c.getInt(c.getColumnIndex("shouyidan"));
+            shouyigang = c.getInt(c.getColumnIndex("shouyigang"));
+            shouyilv = c.getInt(c.getColumnIndex("shouyilv"));
 
+            daojushouyi1 = c.getString(c.getColumnIndex("daojushouyi1"));
+            daojushuliang1 = c.getInt(c.getColumnIndex("daojushuliang1"));
+            daojushouyi2 = c.getString(c.getColumnIndex("daojushouyi2"));
+            daojushuliang2 = c.getInt(c.getColumnIndex("daojushuliang2"));
 
-            yuanzhengjiangli11 = c.getString(c.getColumnIndex("jiangli11"));
-            yuanzhengjiangli12 = c.getInt(c.getColumnIndex("jiangli12"));
-            yuanzhengjiangli21 = c.getString(c.getColumnIndex("jiangli21"));
-            yuanzhengjiangli22 = c.getInt(c.getColumnIndex("jiangli22"));
+            qianzhibianhao1 = c.getString(c.getColumnIndex("qianzhibianhao1"));
+            qianzhirenwu1 = c.getString(c.getColumnIndex("qianzhirenwu1"));
+            qianzhibianhao2 =c .getString(c.getColumnIndex("qianzhibianhao2"));
+            qianzhirenwu2 = c.getString(c.getColumnIndex("qianzhirenwu2"));
 
-            qijiandengji = c.getString(c.getColumnIndex("qijiandengji"));
-            hejidengji = c.getString(c.getColumnIndex("hejidengji"));
-            yuanzhengpeizhi =c .getString(c.getColumnIndex("yuanzhengyaoqiu"));
-            yuanzhengbeizhu = c.getString(c.getColumnIndex("yuanzhengbeizhu"));
-
-
-            xiaohaoran2=c.getInt(c.getColumnIndex("xiaohaoran2"));
-            xiaohaoran3=c.getInt(c.getColumnIndex("xiaohaoran3"));
-            xiaohaodan2=c.getInt(c.getColumnIndex("xiaohaodan2"));
-            xiaohaodan3=c.getInt(c.getColumnIndex("xiaohaodan3"));
+            qitaneirong = c.getString(c.getColumnIndex("qitaneirong"));
 
         }
         c.close();
         db.close();
 
-        TextView yuanzhengmingcheng1 = (TextView) findViewById(R.id.yuanzhengmingcheng);
-        yuanzhengmingcheng1.setText(yuanzhengmingcheng);
+        TextView renwumingcheng1 = (TextView) findViewById(R.id.renwumingcheng);
+        renwumingcheng1.setText(renwumingcheng);
 
-        TextView yuanzhengbianhao1 = (TextView) findViewById(R.id.yuanzhengbianhao);
-        yuanzhengbianhao1.setText(yuanzhengbianhao);
+        TextView renwubianhao1 = (TextView) findViewById(R.id.renwubianhao);
+        renwubianhao1.setText(renwubianhao);
 
-        TextView yuanzhenghaiyu1 = (TextView) findViewById(R.id.yuanzhenghaiyu);
-        yuanzhenghaiyu1.setText(yuanzhenghaiyu);
+        TextView renwuleibie11 = (TextView) findViewById(R.id.renwuleibie);
+        renwuleibie11.setText(renwuleibie1);
 
-        TextView yuanzhengxiaohaoran1 = (TextView) findViewById(R.id.xiaohaoran);
-        yuanzhengxiaohaoran1.setText(yuanzhengxiaohaoran);
+        TextView renwuleibie21 = (TextView) findViewById(R.id.renwushuxing);
+        if(qitaneirong==null){
+        renwuleibie21.setText(renwuleibie2);}
+        else {renwuleibie21.setText(renwuleibie2+" · "+qitaneirong);}
 
-        TextView yuanzhengxiaohaodan1 = (TextView) findViewById(R.id.xiaohaodan);
-        yuanzhengxiaohaodan1.setText(yuanzhengxiaohaodan);
+        TextView renwushuoming1 = (TextView) findViewById(R.id.renwumiaoshu);
+        renwushuoming1.setText(renwushuoming);
 
-        TextView yuanzhengshijian1 = (TextView) findViewById(R.id.xiaohaoshijian);
-        yuanzhengshijian1.setText(yuanzhengshijian);
+        if (renwubeizhu!=null){
+            TextView renwubeizhu1 = (TextView) findViewById(R.id.renwubeizhubiaoti);
+            renwubeizhu1.setVisibility(View.VISIBLE);
+            TextView renwubeizhu2 = (TextView) findViewById(R.id.renwubeizhu);
+            renwubeizhu2.setVisibility(View.VISIBLE);
+            renwubeizhu2.setText(renwubeizhu);};
 
-        TextView yuanzhengtidujingyan1 = (TextView) findViewById(R.id.tidujingyan);
-        yuanzhengtidujingyan1.setText(yuanzhengtidujingyan);
+        if (qianzhibianhao1!=null){
+        TextView renwuqianzhi11 = (TextView) findViewById(R.id.renwuqianzhi1);
+        renwuqianzhi11.setText(qianzhibianhao1 +" · "+ qianzhirenwu1);
+            final String finalQianzhibianhao1 = qianzhibianhao1;
 
-        TextView jianniangjingyan1 = (TextView) findViewById(R.id.jianniangjingyan);
-        jianniangjingyan1.setText(yuanzhengjianniangjingyan);
+            CardView cardView =(CardView) findViewById(R.id.qianzhirenwu);
+            assert cardView != null;
+            cardView.setOnClickListener(new android.view.View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    restartActivity(finalQianzhibianhao1);
+                }
+            });
 
-        TextView yuanzhengran1 = (TextView) findViewById(R.id.yuanzhengran);
-        yuanzhengran1.setText("×" + yuanzhengran);
 
-        TextView yuanzhengdan1 = (TextView) findViewById(R.id.yuanzhengdan);
-        yuanzhengdan1.setText("×" + yuanzhengdan);
+        }
 
-        TextView yuanzhenggang1 = (TextView) findViewById(R.id.yuanzhenggang);
-        yuanzhenggang1.setText("×" + yuanzhenggang);
+        if (qianzhibianhao2!=null){
+        TextView renwuqianzhi21 = (TextView) findViewById(R.id.renwuqianzhi2);
+        renwuqianzhi21.setVisibility(View.VISIBLE);
+        renwuqianzhi21.setText(qianzhibianhao2 +" · "+ qianzhirenwu2);
+            final String finalQianzhirenwu1 = qianzhibianhao1 +" · "+ qianzhirenwu1;
+            final String finalQianzhirenwu2 = qianzhibianhao2 +" · "+ qianzhirenwu2;
+            final String finalQianzhibianhao1 = qianzhibianhao1;
+            final String finalQianzhibianhao2 = qianzhibianhao2;
+            CardView cardView =(CardView) findViewById(R.id.qianzhirenwu);
+            assert cardView != null;
+            cardView.setOnClickListener(new android.view.View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(RenwuxinxiActivity.this);
+                    dialog.setTitle("任务跳转");
+                    final String[] renwutiaozhuan = {finalQianzhirenwu1, finalQianzhirenwu2};
+                    final String[] renwutiaozhuan1 = {finalQianzhibianhao1, finalQianzhibianhao2};
 
-        TextView yuanzhenglv1 = (TextView) findViewById(R.id.yuanzhenglv);
-        yuanzhenglv1.setText("×" + yuanzhenglv);
+                    dialog.setCancelable(true);
+                    dialog.setItems(renwutiaozhuan, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            restartActivity(renwutiaozhuan1[which]);
 
-        TextView yuanzhengjiangli111 = (TextView) findViewById(R.id.jiangli11);
+                        }
+                    });
+
+                    dialog.show();
+                }
+            });
+
+        }
+
+        TextView shouyiran1 = (TextView) findViewById(R.id.renwuran);
+        shouyiran1.setText("×" + shouyiran);
+
+        TextView shouyidan1 = (TextView) findViewById(R.id.renwudan);
+        shouyidan1.setText("×" + shouyidan);
+
+        TextView shouyigang1 = (TextView) findViewById(R.id.renwugang);
+        shouyigang1.setText("×" + shouyigang);
+
+        TextView shouyilv1 = (TextView) findViewById(R.id.renwulv);
+        shouyilv1.setText("×" + shouyilv);
+
+     /*   TextView yuanzhengjiangli111 = (TextView) findViewById(R.id.jiangli11);
         yuanzhengjiangli111.setText( yuanzhengjiangli11+"×" + yuanzhengjiangli12);
 
 
@@ -314,12 +352,24 @@ public class RenwuxinxiActivity extends AppCompatActivity {
 
 
 
-
+*/
 
 
     }
 
 
+    public void restartActivity(String data)
+    {
 
+        Intent intent = new Intent();
+        intent.setClass(RenwuxinxiActivity.this, RenwuxinxiActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("mdata", data); //要传递的数据
+        intent.putExtras(bundle);
+        startActivity(intent);
+        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+        finish();
+
+    }
 
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.kochiyasanae.kancollehelper.YActivity"
-    tools:showIn="@layout/activity_yuanzhengxinxi">
+    tools:showIn="@layout/activity_renwuxinxi">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -40,32 +40,61 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:baselineAligned="false">
-
+                    android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="0dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="7"
+                        android:orientation="horizontal"
+                        android:baselineAligned="false">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_weight="7"
+                            android:layout_marginTop="@dimen/layout_margin_top"
+                            android:layout_marginLeft="@dimen/layout_margin_left"
+                            android:layout_marginStart="@dimen/layout_margin_left"
+                            android:layout_gravity="bottom|start"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/little_text_size"
+                                android:ellipsize="end"
+                                android:text="任务名称"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/renwuleibietubiao"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="top|start"
+                                android:contentDescription="@string/imageview_content_description_xiaocaidai" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_marginTop="@dimen/layout_margin_top"
                         android:layout_marginLeft="@dimen/layout_margin_left"
                         android:layout_marginStart="@dimen/layout_margin_left"
-                        android:layout_marginBottom="@dimen/layout_margin_bottom"
-                        >
+                        android:layout_marginBottom="@dimen/layout_margin_bottom">
+
 
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/little_text_size"
-                            android:ellipsize="end"
-                            android:layout_marginTop="@dimen/textview_margin_top2"
-                            android:text="@string/text_yuanzhengmingcheng"
-                            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-                        <TextView
-                            android:id="@+id/yuanzhengmingcheng"
+                            android:id="@+id/renwumingcheng"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/text_view_margin_left"
@@ -73,7 +102,7 @@
                             android:textSize="@dimen/big_text_size"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:layout_marginTop="@dimen/textview_margin_top2"
+                            android:layout_marginTop="@dimen/textview_margin_top"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
                         <TextView
@@ -81,204 +110,22 @@
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/little_text_size"
                             android:ellipsize="end"
-                            android:layout_marginTop="@dimen/textview_margin_top2"
-                            android:text="@string/text_yuanzhengbianhao"
+                            android:layout_marginTop="@dimen/textview_margin_top"
+                            android:text="任务编号"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
                         <TextView
-                            android:id="@+id/yuanzhengbianhao"
+                            android:id="@+id/renwubianhao"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/textview_margin_top2"
-                            android:layout_marginStart="@dimen/text_view_margin_left"
                             android:layout_marginLeft="@dimen/text_view_margin_left"
+                            android:layout_marginStart="@dimen/text_view_margin_left"
                             android:textSize="@dimen/middle_text_size"
                             android:ellipsize="end"
+                            android:maxLines="1"
+                            android:layout_marginTop="@dimen/textview_margin_top"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-
-
-
-
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:id="@+id/yuanzhengcaidaitubiao"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="@dimen/imageview_margin_right"
-                            android:layout_marginEnd="@dimen/imageview_margin_right"
-                            android:contentDescription="@string/imageview_content_description_xiaocaidai" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-            <android.support.v7.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/card_margin_left"
-                android:layout_marginStart="@dimen/card_margin_left"
-                android:layout_marginRight="@dimen/card_margin_right"
-                android:layout_marginEnd="@dimen/card_margin_right"
-                android:layout_marginTop="@dimen/card_view_margin"
-
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="2dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardBackgroundColor="?attr/card_bg">
-                >
-
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/layout_margin_top"
-                    android:layout_marginLeft="@dimen/layout_margin_left"
-                    android:layout_marginStart="@dimen/layout_margin_left"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom">
-
-
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/little_text_size"
-                        android:ellipsize="end"
-                        android:text="@string/text_yuanzhenghaiyu"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-                    <TextView
-                        android:id="@+id/yuanzhenghaiyu"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:textSize="@dimen/middle_text_size"
-                        android:ellipsize="end"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/little_text_size"
-                        android:ellipsize="end"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:text="@string/text_yuanzhengxiaohao"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:baselineAligned="false">
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/ran"/>
-
-                            <TextView
-                                android:id="@+id/xiaohaoran"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/dan"/>
-
-                            <TextView
-                                android:id="@+id/xiaohaodan"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="2.3"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/time"/>
-
-                            <TextView
-                                android:id="@+id/xiaohaoshijian"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-
-
-                    </LinearLayout>
-
-
-
-
 
 
                 </LinearLayout>
@@ -301,7 +148,7 @@
                 android:clickable="true"
                 android:foreground="?android:attr/selectableItemBackground"
                 card_view:cardBackgroundColor="?attr/card_bg">
-                >
+
 
 
 
@@ -320,99 +167,90 @@
 
 
                     <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/little_text_size"
-                        android:ellipsize="end"
-                        android:text="@string/dengjixuqiu"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/little_text_size"
+                    android:ellipsize="end"
+                    android:text="任务类别"
+                    android:layout_marginTop="@dimen/textview_margin_top2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/renwuleibie"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
                         android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="任务属性"
                         android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:baselineAligned="false">
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="2"
-                            >
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:text="@string/qijiandengji"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                />
-
-                            <TextView
-                                android:id="@+id/qijiandengji"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="2.3"
-                            >
-                            <TextView
-                                android:id="@+id/hejidengjiwenzi"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:text="@string/quantidengji"
-                                android:visibility="gone"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-
-                            <TextView
-                                android:id="@+id/hejidengji"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:visibility="gone"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
+                    <TextView
+                        android:id="@+id/renwushuxing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 
 
-                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
 
 
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin_left"
+                android:layout_marginStart="@dimen/card_margin_left"
+                android:layout_marginRight="@dimen/card_margin_right"
+                android:layout_marginEnd="@dimen/card_margin_right"
+                android:layout_marginTop="@dimen/card_view_margin"
+                android:id="@+id/qianzhirenwu"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardBackgroundColor="?attr/card_bg">
 
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:layout_marginLeft="@dimen/layout_margin_left"
+                    android:layout_marginStart="@dimen/layout_margin_left"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/little_text_size"
                         android:ellipsize="end"
-                        android:text="@string/tuijianpeizhi"
+                        android:text="任务描述"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
                     <TextView
-                        android:id="@+id/yuanzhengpeizhi"
+                        android:id="@+id/renwumiaoshu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/textview_margin_top2"
@@ -424,17 +262,19 @@
 
 
                     <TextView
-                        android:id="@+id/yuanzhengbeizhubiaoti"
+                        android:id="@+id/renwubeizhubiaoti"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/little_text_size"
                         android:ellipsize="end"
-                        android:text="@string/yuanzhengbeizhu"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:text="任务备注"
                         android:visibility="gone"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+
                     <TextView
-                        android:id="@+id/yuanzhengbeizhu"
+                        android:id="@+id/renwubeizhu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/textview_margin_top2"
@@ -446,6 +286,41 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="任务前置"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:id="@+id/renwuqianzhi1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="无"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+                    <TextView
+                        android:id="@+id/renwuqianzhi2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:visibility="gone"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
 
 
                 </LinearLayout>
@@ -486,7 +361,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/little_text_size"
                         android:ellipsize="end"
-                        android:text="@string/yuanzhengshouyi"
+                        android:text="任务收益"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
@@ -527,7 +402,7 @@
                                 android:src="@mipmap/ran"/>
 
                             <TextView
-                                android:id="@+id/yuanzhengran"
+                                android:id="@+id/renwuran"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
@@ -553,7 +428,7 @@
                                 android:src="@mipmap/dan"/>
 
                             <TextView
-                                android:id="@+id/yuanzhengdan"
+                                android:id="@+id/renwudan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
@@ -581,7 +456,7 @@
                                 android:src="@mipmap/gang"/>
 
                             <TextView
-                                android:id="@+id/yuanzhenggang"
+                                android:id="@+id/renwugang"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
@@ -608,7 +483,7 @@
                                 android:src="@mipmap/lv"/>
 
                             <TextView
-                                android:id="@+id/yuanzhenglv"
+                                android:id="@+id/renwulv"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
@@ -658,7 +533,7 @@
 
 
                             <TextView
-                                android:id="@+id/jiangli11"
+                                android:id="@+id/daojushouyi1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/middle_text_size"
@@ -681,7 +556,7 @@
 
 
                             <TextView
-                                android:id="@+id/jiangli21"
+                                android:id="@+id/daojushouyi2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/middle_text_size"
@@ -704,10 +579,132 @@
                         android:layout_marginLeft="@dimen/text_view_margin_left"
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textColor="@color/xingse"
-                        android:text="@string/jingyanshouyi"
+                        android:visibility="visible"
+                        android:text="其他收益"
                         android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
 
+
+                    <TextView
+                        android:id="@+id/qitashouyi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:visibility="visible"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tuijianzhenrong"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/card_margin_left"
+                android:layout_marginStart="@dimen/card_margin_left"
+                android:layout_marginRight="@dimen/card_margin_right"
+                android:layout_marginEnd="@dimen/card_margin_right"
+                android:layout_marginTop="@dimen/card_view_margin"
+                card_view:cardCornerRadius="4dp"
+                card_view:cardElevation="2dp"
+                android:clickable="true"
+                android:visibility="visible"
+                android:foreground="?android:attr/selectableItemBackground"
+                card_view:cardBackgroundColor="?attr/card_bg">
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:layout_marginLeft="@dimen/layout_margin_left"
+                    android:layout_marginStart="@dimen/layout_margin_left"
+                    android:layout_marginBottom="@dimen/layout_margin_bottom">
+
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:text="推荐配置"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:id="@+id/tuijianpeizhi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:visibility="visible"
+
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:text="具体配装"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                    <TextView
+                        android:id="@+id/jutipeizhuang0"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:id="@+id/jutipeizhuang1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:visibility="visible"/>
+
+
+
+
+
+
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="制空查询"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -731,19 +728,18 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/middle_text_size"
                                 android:ellipsize="end"
-                                android:text="@string/tidujingyan"
+                                android:text="优势"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                                 />
 
                             <TextView
-                                android:id="@+id/tidujingyan"
+                                android:id="@+id/qijiandengji"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
                                 android:textSize="@dimen/middle_text_size"
                                 android:ellipsize="end"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+
                                 />
                         </LinearLayout>
 
@@ -755,23 +751,24 @@
                             android:layout_weight="2.3"
                             >
                             <TextView
+                                android:id="@+id/hejidengjiwenzi"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/middle_text_size"
                                 android:ellipsize="end"
-                                android:text="@string/jianniangjingyan"
+                                android:text="确保"
+                                android:visibility="gone"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
 
                                 />
 
                             <TextView
-                                android:id="@+id/jianniangjingyan"
+                                android:id="@+id/hejidengji"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
                                 android:textSize="@dimen/middle_text_size"
                                 android:ellipsize="end"
+                                android:visibility="gone"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
 
                                 />
@@ -780,319 +777,6 @@
 
 
                     </LinearLayout>
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-
-
-            <android.support.v7.widget.CardView
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/card_margin_left"
-                android:layout_marginStart="@dimen/card_margin_left"
-                android:layout_marginRight="@dimen/card_margin_right"
-                android:layout_marginEnd="@dimen/card_margin_right"
-                android:layout_marginTop="@dimen/card_view_margin"
-                card_view:cardCornerRadius="4dp"
-                card_view:cardElevation="2dp"
-                android:clickable="true"
-                android:foreground="?android:attr/selectableItemBackground"
-                card_view:cardBackgroundColor="?attr/card_bg">
-                >
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_marginTop="@dimen/layout_margin_top"
-                    android:layout_marginLeft="@dimen/layout_margin_left"
-                    android:layout_marginStart="@dimen/layout_margin_left"
-                    android:layout_marginBottom="@dimen/layout_margin_bottom">
-
-
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:textSize="@dimen/little_text_size"
-                        android:ellipsize="end"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:text="@string/yuanzhengxiaoyichanggui"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/xingse_text_size"
-                        android:ellipsize="end"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:textColor="@color/xingse"
-                        android:text="@string/changguipeizhi"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:baselineAligned="false">
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/ran"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshichangguiran"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/dan"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshichanguidan"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/gang"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshichangguigang"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1.3"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/lv"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshichangguilv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="@dimen/xingse_text_size"
-                        android:ellipsize="end"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:textColor="@color/xingse"
-                        android:text="@string/dachenggongpeizhi"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:layout_marginLeft="@dimen/text_view_margin_left"
-                        android:layout_marginStart="@dimen/text_view_margin_left"
-                        android:layout_marginTop="@dimen/textview_margin_top2"
-                        android:baselineAligned="false">
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/ran"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshiran"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/dan"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshidan"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/gang"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshigang"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-                        <LinearLayout
-
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:layout_weight="1.3"
-                            >
-
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center_vertical"
-                                android:src="@mipmap/lv"/>
-
-                            <TextView
-                                android:id="@+id/xiaoshilv"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/text_view_margin_from_imageview_left"
-                                android:layout_marginStart="@dimen/text_view_margin_from_imageview_left"
-                                android:textSize="@dimen/middle_text_size"
-                                android:ellipsize="end"
-                                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-
 
 
 

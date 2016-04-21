@@ -21,11 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
-import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.YuanzhengBeifanghaiyuFragment;
-import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.YuanzhengNanfanghaiyuFragment;
-import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.YuanzhengNanxizhudaohaiyuFragment;
-import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.YuanzhengXifanghaiyuFragment;
-import com.kochiyasanae.kancollehelper.Fragment.YuanzhengFragment.YuanzhengZhenshoufuhaiyuFragment;
+import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuBianchengFragment;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
 
@@ -239,28 +235,30 @@ public class RenwuActivity extends AppCompatActivity {
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
         List<String> titles = new ArrayList<>();
-        titles.add("镇守府海域");
-        titles.add("南西诸岛海域");
-        titles.add("北方海域");
-        titles.add("西方海域");
-        titles.add("南方海域");
-//        titles.add("中部海域");
-//        titles.add("皋月的24小时远征规划");
-//       titles.add("Z1的大型舰建造计划");
+        titles.add("大淀的任务指南");
+        titles.add("编成");
+        titles.add("出击");
+        titles.add("演习");
+        titles.add("远征");
+        titles.add("补给/入渠");
+        titles.add("工厂");
+        titles.add("改装");
+        titles.add("期间限定任务(已过期)");
 
         for(int i=0;i<titles.size();i++){
             mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(i)));
         }
 
         fragment = new ArrayList<>();
-        fragment.add(new YuanzhengZhenshoufuhaiyuFragment());
-        fragment.add(new YuanzhengNanxizhudaohaiyuFragment());
-        fragment.add(new YuanzhengBeifanghaiyuFragment());
-        fragment.add(new YuanzhengXifanghaiyuFragment());
-        fragment.add(new YuanzhengNanfanghaiyuFragment());
-//        fragment.add(new YuanzhengZhongbuhaiyuFragment());
-//        fragment.add(new YuanzhengGaoyueFragment());
-//        fragment.add(new YuanzhengZ1Fragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
+        fragment.add(new RenwuBianchengFragment());
 
 
         mFragmentAdapteradapter =
@@ -273,15 +271,16 @@ public class RenwuActivity extends AppCompatActivity {
             {
                 fragment = null;
                 List<Fragment> list = new ArrayList<Fragment>();
-                list.add(new YuanzhengZhenshoufuhaiyuFragment());
-                list.add(new YuanzhengNanxizhudaohaiyuFragment());
-                list.add(new YuanzhengBeifanghaiyuFragment());
-                list.add(new YuanzhengXifanghaiyuFragment());
-                list.add(new YuanzhengNanfanghaiyuFragment());
-//                list.add(new YuanzhengZhongbuhaiyuFragment());
-//                list.add(new YuanzhengGaoyueFragment());
-//                list.add(new YuanzhengZ1Fragment());
-
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
+                list.add(new RenwuBianchengFragment());
                 mFragmentAdapteradapter.setPagerItems(list);
             }
         });

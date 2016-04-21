@@ -1,8 +1,11 @@
 package com.kochiyasanae.kancollehelper;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.design.widget.NavigationView;
@@ -28,6 +31,7 @@ import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 import com.kochiyasanae.kancollehelper.Fragment.GaixiuFragment.*;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
+import com.kochiyasanae.kancollehelper.Unit.UpdateChecker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,33 +95,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 //数据库建立
-        dbhelper=new MyDatabaseHelper(this,"GaixiuDB",null,databasevesion);
-        SQLiteDatabase db= dbhelper.getWritableDatabase();
-        db.close();
 
 
 
-        SharedPreferences sharedPreferences = this.getSharedPreferences("APP", MODE_PRIVATE);
-        int APPVersion = sharedPreferences.getInt("APPVersion",1);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        if (APPVersion!=NewAPPVesion)
-        {
-            Intent intent0 = new Intent();
-            intent0.setClass(MainActivity.this,HuanyingActivity.class);
-            startActivity(intent0);
 
-            editor.putInt("APPVersion", NewAPPVesion);
-            editor.commit();
-            Log.d("debug", "第一次运行");
-
-        } else {
-
-
-            Log.d("debug", "不是第一次运行");
-
-
-
-        }
 
 
 
@@ -185,13 +166,12 @@ public class MainActivity extends AppCompatActivity {
 
                                     break;
 
-                 /*               case R.id.nav_renwu:
+                                case R.id.nav_renwu:
                                     Intent intent3 = new Intent();
                                     intent3.setClass(MainActivity.this, RenwuActivity.class);
                                     startActivity(intent3);
-
                                     finish();
-                                    break;*/
+                                    break;
 
                                 case R.id.nav_yuanzheng:
                                     Intent intent4 = new Intent();
@@ -228,6 +208,32 @@ public class MainActivity extends AppCompatActivity {
                     });
         }
 
+        SharedPreferences sharedPreferences = this.getSharedPreferences("APP", MODE_PRIVATE);
+        int APPVersion = sharedPreferences.getInt("APPVersion", 1);
+        if (APPVersion!=NewAPPVesion)
+        {
+            dbhelper=new MyDatabaseHelper(this,"GaixiuDB",null,databasevesion);
+            SQLiteDatabase db= dbhelper.getWritableDatabase();
+            db.close();
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("APPVersion", NewAPPVesion);
+            editor.commit();
+
+            Intent intent0 = new Intent();
+            intent0.setClass(MainActivity.this,HuanyingActivity.class);
+            startActivity(intent0);
+
+            Log.d("debug", "第一次运行");
+
+        } else {
+
+            Log.d("debug", "不是第一次运行");
+            boolean gengxinmode= PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("gengxin_switch", true);
+
+            if(isWifi(MainActivity.this)&&gengxinmode){
+                UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);}
+
+        }
 
         Handler handler = new Handler();
         Runnable runnable = new Runnable() {
@@ -237,16 +243,23 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
             }
         };
         handler.post(runnable);
 
+      }
 
+
+    public static boolean isWifi(Context mContext) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) mContext
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetInfo = connectivityManager.getActiveNetworkInfo();
+        if (activeNetInfo != null
+                && activeNetInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+            return true;
+        }
+        return false;
     }
-
-
-
 
 
 

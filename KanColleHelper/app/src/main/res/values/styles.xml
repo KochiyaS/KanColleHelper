@@ -27,6 +27,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="card_bg">@color/white</item>
         <item name="actionBarTheme">@style/AppTheme.ActionBarTheme.Light</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.Light</item>
 
     </style>
 
@@ -38,6 +39,8 @@
         <item name="colorAccent">@color/colorAccentNight</item>
         <item name="card_bg">@color/dark</item>
         <item name="actionBarTheme">@style/AppTheme.ActionBarTheme.Dark</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.Dark</item>
+
     </style>
 
     <style name="AppTheme.ActionBarTheme.Light" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -48,9 +51,21 @@
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
     </style>
 
+    <style name="AppTheme.AlertDialogTheme.Light" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.AlertDialogTheme.Dark" parent="@style/Theme.AppCompat.Dialog.Alert">
+        <item name="colorAccent">@color/white</item>
+    </style>
+
     <style name="mingshifen" parent="AppTheme.Light">
         <item name="colorPrimary">@color/colorMingshifen</item>
         <item name="colorPrimaryDark">@color/colorMingshifen</item>
+        <item name="colorAccent">@color/colorMingshifen</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.mingshifen</item>
+    </style>
+    <style name="AppTheme.AlertDialogTheme.mingshifen" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorMingshifen</item>
     </style>
 
@@ -58,11 +73,19 @@
         <item name="colorPrimary">@color/colorXizhanglv</item>
         <item name="colorPrimaryDark">@color/colorXizhanglv</item>
         <item name="colorAccent">@color/colorXizhanglv</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.xizhanglv</item>
+    </style>
+    <style name="AppTheme.AlertDialogTheme.xizhanglv" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorXizhanglv</item>
     </style>
 
     <style name="gaoyuehuang" parent="AppTheme.Light">
         <item name="colorPrimary">@color/colorGaoyuehuang</item>
         <item name="colorPrimaryDark">@color/colorGaoyuehuang</item>
+        <item name="colorAccent">@color/colorGaoyuehuang</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.gaoyuehuang</item>
+    </style>
+    <style name="AppTheme.AlertDialogTheme.gaoyuehuang" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
         <item name="colorAccent">@color/colorGaoyuehuang</item>
     </style>
 
@@ -70,7 +93,12 @@
         <item name="colorPrimary">@color/colorDadianlan</item>
         <item name="colorPrimaryDark">@color/colorDadianlan</item>
         <item name="colorAccent">@color/colorDadianlan</item>
+        <item name="alertDialogTheme">@style/AppTheme.AlertDialogTheme.dadianlan</item>
     </style>
+    <style name="AppTheme.AlertDialogTheme.dadianlan" parent="@style/Theme.AppCompat.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorDadianlan</item>
+    </style>
+
 
 
 </resources>

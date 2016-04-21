@@ -23,7 +23,7 @@ import java.util.List;
 /**
  * Created by KochiyaSanae on 2016/3/26.
  */
-public class RenwuChujiFragment extends Fragment {
+public class RenwuBianchengFragment extends Fragment {
 
 
     private MyDatabaseHelper dbhelper;
@@ -45,30 +45,30 @@ public class RenwuChujiFragment extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        List<String> yuanzhengbianhao = new ArrayList<>();
-        List<String> yuanzhengmingcheng = new ArrayList<>();
-        List<String> yuanzhengshijian = new ArrayList<>();
-        List<String> yuanzhenghaiyu = new ArrayList<>();
-        List<String> yuanzhengnandu = new ArrayList<>();
+        List<String> renwubianhao = new ArrayList<>();
+        List<String> renwuleibie1 = new ArrayList<>();
+        List<String> renwuleibie2 = new ArrayList<>();
+        List<String> renwumingcheng = new ArrayList<>();
+        List<String> renwumiaoshu = new ArrayList<>();
 
-        String sqlyuanzhengchaxun = null;
+        String sqlrenwuchaxun = null;
 
 
-        sqlyuanzhengchaxun = "select bianhao,haiyu,mingcheng,haoshi1,nandu from yuanzheng where haiyu = '镇守府海域'  ";
+        sqlrenwuchaxun = "select bianhao,leibie1,leibie2,mingcheng,miaoshu from renwu where leibie1 = '编成类' ";
         dbhelper = new MyDatabaseHelper(getActivity(), "GaixiuDB", null, MainActivity.databasevesion);
         SQLiteDatabase db = dbhelper.getReadableDatabase();
-        Cursor c = db.rawQuery(sqlyuanzhengchaxun, null);
+        Cursor c = db.rawQuery(sqlrenwuchaxun, null);
         while (c.moveToNext()) {
             String bianhao = c.getString(c.getColumnIndex("bianhao"));
-            yuanzhengbianhao.add(bianhao);
+            renwubianhao.add(bianhao);
+            String leibie1 = c.getString(c.getColumnIndex("leibie1"));
+            renwuleibie1.add(leibie1);
+            String leibie2 = c.getString(c.getColumnIndex("leibie2"));
+            renwuleibie2.add(leibie2);
             String mingcheng = c.getString(c.getColumnIndex("mingcheng"));
-            yuanzhengmingcheng.add(mingcheng);
-            String shijian = c.getString(c.getColumnIndex("haoshi1"));
-            yuanzhengshijian.add(shijian);
-            String haiyu = c.getString(c.getColumnIndex("haiyu"));
-            yuanzhenghaiyu.add(haiyu);
-            String nandu = c.getString(c.getColumnIndex("nandu"));
-            yuanzhengnandu.add(nandu);
+            renwumingcheng.add(mingcheng);
+            String miaoshu = c.getString(c.getColumnIndex("miaoshu"));
+            renwumiaoshu.add(miaoshu);
 
 
         }
@@ -76,14 +76,11 @@ public class RenwuChujiFragment extends Fragment {
         db.close();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mAdapter = new RecyclerViewRenwuAdapter(yuanzhengbianhao, yuanzhengmingcheng, yuanzhengshijian, yuanzhenghaiyu, yuanzhengnandu);
+        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1, renwuleibie2, renwumingcheng, renwumiaoshu);
         mRecyclerView.setAdapter(mAdapter);
 
 
-
-
-
-        mAdapter.setOnItemClickListener(new RecyclerViewRenwuAdapter.OnRecyclerViewItemClickListener() {
+       mAdapter.setOnItemClickListener(new RecyclerViewRenwuAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String data) {
 
@@ -98,7 +95,6 @@ public class RenwuChujiFragment extends Fragment {
 
             }
         });
-
 
 
     }

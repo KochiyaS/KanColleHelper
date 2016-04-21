@@ -17,7 +17,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String Create_Yuanzheng="create table Yuanzheng(id integer primary key autoincrement,bianhao text,haiyu text,mingcheng text,nandu text,haoshi1 text,haoshi2 text,haoshi3 integer,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,jiangli11 text,jiangli12 integer,jiangli21 text,jiangli22 integer,tidujingyan integer,jianniangjingyan integer,qijiandengji integer,hejidengji integer,yuanzhengyaoqiu text,yuanzhengbeizhu text,xiaohaoran1 text,xiaohaoran2 integer,xiaohaoran3 integer,xiaohaodan1 text,xiaohaodan2 integer,xiaohaodan3 integer,suoshujiandui text,yuanzhengcishu integer)";
 //    public static final String Create_Yuanzhengdui="create table Yuanzhengdui(id integer primary key autoincrement,yuanzhengdui text,yuanzhengpeizhi text,dafadongting integer)";
 
-    public static final String Create_Renwu="create table Gaixiu(id integer primary key autoincrement,leibie1 text,leibie2 text,mingcheng text,mubiao1 text,mubiao2 text,ran integer,dan integer,gang integer,lv integer,zicai1 text,luosi1 text,zhuangbei1 text,zicai2 text,luosi2 text,zhuangbei2 text,zicai3 text,luosi3 text,zhuangbei3 text,gaixiujian text,zhouri text,zhouyi text,zhouer text,zhousan text,zhousi text,zhouwu text,zhouliu text,youxianji integer,guanzhuxinpin text)";
+    public static final String Create_Renwu="create table Renwu(id integer primary key autoincrement,bianhao text,leibie1 text,leibie2 text,mingcheng text,miaoshu text,xiangximiaoshu text,renwubeizhu text,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,daojushouyi1 text,daojushuliang1 integer,daojushouyi2 text,daojushuliang2 integer,qitashouyi text,qianzhibianhao1 text,qianzhirenwu1 text,qianzhibianhao2 text,qianzhirenwu2 text,qitaneirong text)";
+    public static final String Create_Renwugonglue="create table Renwugonglue(id integer primary key autoincrement,bianhao text,mingcheng text,zhikongzhi1 integer,zhikongzhi2 integer,suodizhi1 integer,suodizhi2 integer,jianduipeizhi text,jianduibeizhu text,peizhuang1 text,beizhu1 text,peizhuang2 text,beizhu2 text,peizhuang3 text,beizhu3 text,peizhuang4 text,beizhu4 text,peizhuang5 text,beizhu5 text,peizhi6 text,beizhu6 text)";
 
 
 
@@ -40,8 +41,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(Create_Gaixiu);
         db.execSQL(Create_Yuanzheng);
 //        db.execSQL(Create_Yuanzhengdui);
-//        db.execSQL(Create_Renwu);
-
+        db.execSQL(Create_Renwu);
+//        db.execSQL(Create_Renwugonglue);
 
         db.beginTransaction();
         db.execSQL("INSERT INTO Gaixiu VALUES ('1','主炮','小口径主炮','12.7cm连装炮','12.7cm连装炮B型改二',null,'10','30','60','0','1/2','1/2',null,'1/2','1/2','12.7cm连装炮×1','2/3','3/6','12.7cm连装炮×2','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','10',null)");
@@ -154,8 +155,11 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
   //      db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
 
 
-  //      db.execSQL("INSERT INTO Renwu VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
-   //     db.execSQL("INSERT INTO Renwu VALUES ('40','远征40','南方海域','水上机前线运输','S','6小时50分钟','06:50','410','300','300','0','100','家具箱(小)','3','高速修复材','1','60','140','25','150','全部6只，轻巡洋舰(旗舰)×1，水上机母舰×2，驱逐舰×2，自由舰×2。','该远征拥有合适的燃料、弹药、铝土矿收益，并推荐采用“四闪四桶”的大成功配置。','80%','112','126','70%','126','144',null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('1','A1','编成类','一次性任务','初次的“编成”！','配置2只以上的舰娘','编成拥有2只以上的舰娘的“舰队”！',null,'20','20','0','0',null,null,null,null,'驱逐舰“白雪”',null,null,null,null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('2','A2','编成类','一次性任务','“驱逐队”编成！','配置4只以上的驱逐舰','编成拥有4只以上的驱逐舰的“驱逐队”！',null,'30','30','30','0','高速建造材','1',null,null,null,'A1','初次的“编成”！',null,null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('3','A3','编成类','一次性任务','“水雷战队”编成！','以轻巡洋舰为旗舰，再配置数只驱逐舰','编成以轻巡洋舰为旗舰，外加数艘驱逐舰的“水雷战队”！',null,'40','40','0','40','开发资材','1',null,null,null,'A2','“驱逐队”编成！',null,null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('4','A4','编成类','一次性任务','拥有6只舰娘的舰队编成！','配置6只舰娘','编成拥有6只舰娘的主力舰队！',null,'50','0','50','0',null,null,null,null,'开放第二舰队','A3','“水雷战队”编成！',null,null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('5','A5','编成类','一次性任务','拥有2只轻巡的舰队编成！','配置2只轻巡洋舰','编成拥有2只轻巡洋舰的高速舰队！',null,'60','60','0','0','开发资材','1',null,null,null,'A3','“水雷战队”编成！','A3','“水雷战队”编成！',null)");
 
 
 

@@ -38,7 +38,7 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
     }
 
 //第一步，声名数值
-public List<String> mdatas;
+    public List<String> mdatas;
     public List<String> mdatas1;
     public List<String> mdatas2;
     public List<String> mdatas3;
@@ -47,12 +47,12 @@ public List<String> mdatas;
 
 
 //第二步，传入数值
-    public RecyclerViewRenwuAdapter(List<String> yuanzhengbianhao, List<String> yuanzhengmingcheng, List<String> yuanzhengshijian, List<String> yuanzhenghaiyu, List<String> yuanzhengnandu){
-        this.mdatas = yuanzhengbianhao;
-        this.mdatas1 = yuanzhengmingcheng;
-        this.mdatas2 = yuanzhengshijian;
-        this.mdatas3 = yuanzhenghaiyu;
-        this.mdatas4= yuanzhengnandu;
+    public RecyclerViewRenwuAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwuleibie2, List<String> renwumingcheng, List<String> renwumiaoshu){
+        this.mdatas = renwubianhao;
+        this.mdatas1 = renwuleibie1;
+        this.mdatas2 = renwuleibie2;
+        this.mdatas3 = renwumingcheng;
+        this.mdatas4= renwumiaoshu;
     }
 
     public RecyclerViewRenwuAdapter(Context mContext) {
@@ -63,7 +63,7 @@ public List<String> mdatas;
     @Override
     public RecyclerViewRenwuAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view =
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_card_yuanzheng, parent, false);
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_card_renwu, parent, false);
         //将创建的View注册点击事件
         view.setOnClickListener(this);
         view.setOnLongClickListener(this);
@@ -78,16 +78,23 @@ public List<String> mdatas;
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.textView.setText(mdatas.get(position));
         holder.textView1.setText(mdatas1.get(position));
-        holder.textView2.setText(mdatas2.get(position));
         holder.textView3.setText(mdatas3.get(position));
-        holder.itemView.setTag(mdatas1.get(position));
+        holder.textView4.setText(mdatas4.get(position));
+        holder.itemView.setTag(mdatas.get(position));
 
-        if ("S".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_s);}
-        else if ("C".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_c);}
-        else if ("E".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_e);}
-        else if ("B".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_b);}
-        else if ("D".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_d);}
-        else if ("A".equals(mdatas4.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_a);}
+        if (!("一次性任务".equals(mdatas2.get(position)))){
+            holder.textView2.setVisibility(View.VISIBLE);
+            holder.textView2.setText(" · "+mdatas2.get(position));
+        }
+
+        if ("S".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_s);}
+        else if ("编成类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_biancheng);}
+        else if ("E".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_e);}
+        else if ("B".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_b);}
+        else if ("D".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_d);}
+        else if ("A".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_a);}
+
+
 
 
 
@@ -111,6 +118,7 @@ public List<String> mdatas;
         private TextView textView1;
         private TextView textView2;
         private TextView textView3;
+        private TextView textView4;
         private ImageView imageView;
 
 
@@ -118,11 +126,12 @@ public List<String> mdatas;
         //第六步，绑定内容到item中去
         public ViewHolder(View View) {
             super(View);
-            textView= (TextView) View.findViewById(R.id.yuanzhengbianhao);
-            textView1= (TextView) View.findViewById(R.id.yuanzhengmingcheng);
-            textView2= (TextView) View.findViewById(R.id.yuanzhengshijian);
-            textView3= (TextView) View.findViewById(R.id.yuanzhenghaiyu);
-            imageView=(ImageView) View.findViewById(R.id.yuanzhengnandu);
+            textView= (TextView) View.findViewById(R.id.renwubianhao);
+            textView1= (TextView) View.findViewById(R.id.renwuleibie1);
+            textView2= (TextView) View.findViewById(R.id.renwuleibie2);
+            textView3= (TextView) View.findViewById(R.id.renwumingcheng);
+            textView4= (TextView) View.findViewById(R.id.renwujianbao);
+            imageView=(ImageView) View.findViewById(R.id.renwuleibietubiao);
 
 
         }
