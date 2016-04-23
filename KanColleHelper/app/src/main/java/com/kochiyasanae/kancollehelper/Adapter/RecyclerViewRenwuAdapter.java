@@ -40,17 +40,15 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
 //第一步，声名数值
     public List<String> mdatas;
     public List<String> mdatas1;
-    public List<String> mdatas2;
     public List<String> mdatas3;
     public List<String> mdatas4;
 
 
 
 //第二步，传入数值
-    public RecyclerViewRenwuAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwuleibie2, List<String> renwumingcheng, List<String> renwumiaoshu){
+    public RecyclerViewRenwuAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwumingcheng, List<String> renwumiaoshu){
         this.mdatas = renwubianhao;
         this.mdatas1 = renwuleibie1;
-        this.mdatas2 = renwuleibie2;
         this.mdatas3 = renwumingcheng;
         this.mdatas4= renwumiaoshu;
     }
@@ -82,10 +80,6 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
         holder.textView4.setText(mdatas4.get(position));
         holder.itemView.setTag(mdatas.get(position));
 
-        if (!("一次性任务".equals(mdatas2.get(position)))){
-            holder.textView2.setVisibility(View.VISIBLE);
-            holder.textView2.setText(" · "+mdatas2.get(position));
-        }
 
         if ("出击类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_chuji);}
         else if ("编成类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_biancheng);}
@@ -117,7 +111,6 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
 
         private TextView textView;
         private TextView textView1;
-        private TextView textView2;
         private TextView textView3;
         private TextView textView4;
         private ImageView imageView;
@@ -129,7 +122,6 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
             super(View);
             textView= (TextView) View.findViewById(R.id.renwubianhao);
             textView1= (TextView) View.findViewById(R.id.renwuleibie1);
-            textView2= (TextView) View.findViewById(R.id.renwuleibie2);
             textView3= (TextView) View.findViewById(R.id.renwumingcheng);
             textView4= (TextView) View.findViewById(R.id.renwujianbao);
             imageView=(ImageView) View.findViewById(R.id.renwuleibietubiao);

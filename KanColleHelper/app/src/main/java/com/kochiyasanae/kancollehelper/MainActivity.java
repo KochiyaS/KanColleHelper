@@ -34,6 +34,7 @@ import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActiv
 import com.kochiyasanae.kancollehelper.Unit.UpdateChecker;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     public static int databasevesion=24;
     static int NewAPPVesion=24;
     public static final String APP_UPDATE_SERVER_URL = "https://raw.githubusercontent.com/KochiyaS/KancolleHelperUpdate/master/UpdateInformation.json";
-    public static final boolean APK_IS_AUTO_INSTALL = false;
+    public static final boolean APK_IS_AUTO_INSTALL = true;
 
 
     public FragmentAdapter mFragmentAdapteradapter;
@@ -167,14 +168,18 @@ public class MainActivity extends AppCompatActivity {
                                     break;
 
                                 case R.id.nav_renwu:
-                                    Intent intent3 = new Intent();
-                                    intent3.setClass(MainActivity.this, RenwuActivity.class);
-                                    startActivity(intent3);
-                                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
-                                    finish();
+
+                                            Intent intent3 = new Intent();
+                                            intent3.setClass(MainActivity.this, RenwuActivity.class);
+                                            startActivity(intent3);
+                                            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+                                            finish();
+
                                     break;
 
                                 case R.id.nav_yuanzheng:
+
+
                                     Intent intent4 = new Intent();
                                     intent4.setClass(MainActivity.this, YuanzhengActivity.class);
                                     startActivity(intent4);
@@ -232,11 +237,63 @@ public class MainActivity extends AppCompatActivity {
 
         } else {
 
-            Log.d("debug", "不是第一次运行");
+
             boolean gengxinmode= PreferenceManager.getDefaultSharedPreferences(MainActivity.this).getBoolean("gengxin_switch", true);
 
             if(isWifi(MainActivity.this)&&gengxinmode){
-                UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);}
+
+                Integer gengxinmode2=  Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("gengxin_list", "2"));
+
+                SharedPreferences sharedPreferences2 = this.getSharedPreferences("Date", MODE_PRIVATE);
+                int date1 = sharedPreferences2.getInt("Date",1);
+                Calendar calendar =Calendar.getInstance();
+                int date2 = calendar.get(Calendar.DATE);
+
+
+            switch (gengxinmode2) {
+                case 1:
+                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
+                    Log.d("debug", "每次检查");
+
+                    break;
+
+                case 2:
+
+                    if (date1 != date2) {
+                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.putInt("Date", date2);
+                        editor.commit();
+                        Log.d("debug", "今天检查一次");
+
+                    }
+                    break;
+                case 3:
+                    if ((date1!=date2)&&(date2 % 3 == 2)){
+                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.putInt("Date", date2);
+                        editor.commit();
+                        Log.d("debug", "三天检查一次");
+
+                    }
+                    break;
+
+                case 4:
+                    if ((date1!=date2)&&(date2 % 7 == 2)){
+                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.putInt("Date", date2);
+                        editor.commit();
+                        Log.d("debug", "七天检查一次");
+
+                    }
+                    break;
+            }
+
+            }
+
+
 
         }
 

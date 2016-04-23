@@ -47,7 +47,6 @@ public class RenwuXianqirenwuFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         List<String> renwubianhao = new ArrayList<>();
         List<String> renwuleibie1 = new ArrayList<>();
-        List<String> renwuleibie2 = new ArrayList<>();
         List<String> renwumingcheng = new ArrayList<>();
         List<String> renwumiaoshu = new ArrayList<>();
 
@@ -63,8 +62,6 @@ public class RenwuXianqirenwuFragment extends Fragment {
             renwubianhao.add(bianhao);
             String leibie1 = c.getString(c.getColumnIndex("leibie1"));
             renwuleibie1.add(leibie1);
-            String leibie2 = c.getString(c.getColumnIndex("leibie2"));
-            renwuleibie2.add(leibie2);
             String mingcheng = c.getString(c.getColumnIndex("mingcheng"));
             renwumingcheng.add(mingcheng);
             String miaoshu = c.getString(c.getColumnIndex("miaoshu"));
@@ -76,7 +73,7 @@ public class RenwuXianqirenwuFragment extends Fragment {
         db.close();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1, renwuleibie2, renwumingcheng, renwumiaoshu);
+        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1,  renwumingcheng, renwumiaoshu);
         mRecyclerView.setAdapter(mAdapter);
 
 

@@ -59,7 +59,6 @@ public class RenwuXilieFragment extends Fragment {
 
         List<String> renwubianhao = new ArrayList<>();
         List<String> renwuleibie1 = new ArrayList<>();
-        List<String> renwuleibie2 = new ArrayList<>();
         List<String> renwumingcheng = new ArrayList<>();
         List<String> renwumiaoshu = new ArrayList<>();
         List<String> renwufenlei =new ArrayList<>();
@@ -76,8 +75,6 @@ public class RenwuXilieFragment extends Fragment {
             renwubianhao.add(bianhao);
             String leibie1 = c.getString(c.getColumnIndex("leibie1"));
             renwuleibie1.add(leibie1);
-            String leibie2 = c.getString(c.getColumnIndex("leibie2"));
-            renwuleibie2.add(leibie2);
             String mingcheng = c.getString(c.getColumnIndex("mingcheng"));
             renwumingcheng.add(mingcheng);
             String miaoshu = c.getString(c.getColumnIndex("miaoshu"));
@@ -91,7 +88,7 @@ public class RenwuXilieFragment extends Fragment {
         db.close();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mAdapter = new RecyclerViewRenwuXilieAdapter(renwubianhao, renwuleibie1, renwuleibie2, renwumingcheng, renwumiaoshu,renwufenlei);
+        mAdapter = new RecyclerViewRenwuXilieAdapter(renwubianhao, renwuleibie1,  renwumingcheng, renwumiaoshu,renwufenlei);
         mRecyclerView.setAdapter(mAdapter);
 
 
@@ -116,7 +113,7 @@ public class RenwuXilieFragment extends Fragment {
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setTitle("选择任务分类");
                     dialog.setCancelable(true);
-                    dialog.setSingleChoiceItems(renwufenlei,0, new DialogInterface.OnClickListener() {
+                    dialog.setItems(renwufenlei,  new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 

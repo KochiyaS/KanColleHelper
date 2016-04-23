@@ -39,7 +39,7 @@
         <com.lb.material_preferences_library.custom_preferences.SwitchPreference
             android:defaultValue="false"
             android:key="chuannei_switch"
-            android:summary="让川内陪你夜战吧"
+            android:summary="让帅气的川内陪你夜战吧"
             android:title="川内模式" />
 
 
@@ -57,7 +57,15 @@
             android:key="gengxin_switch"
             android:summary="仅在wifi模式下生效，请放心开启"
             android:title="自动更新" />
-
+        <com.lb.material_preferences_library.custom_preferences.ListPreference
+            android:defaultValue="2"
+            app:entries="@array/pref_gengxin_list_titles"
+            app:entryValues="@array/pref_gengxin_list_values"
+            android:key="gengxin_list"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="更新间隔" />
 
     </PreferenceCategory>
 

@@ -47,14 +47,14 @@ public class RenwuBujiruquFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         List<String> renwubianhao = new ArrayList<>();
         List<String> renwuleibie1 = new ArrayList<>();
-        List<String> renwuleibie2 = new ArrayList<>();
+
         List<String> renwumingcheng = new ArrayList<>();
         List<String> renwumiaoshu = new ArrayList<>();
 
         String sqlrenwuchaxun = null;
 
 
-        sqlrenwuchaxun = "select bianhao,leibie1,leibie2,mingcheng,miaoshu from renwu where leibie1 = '补给/入渠类' ";
+        sqlrenwuchaxun = "select bianhao,leibie1,mingcheng,miaoshu from renwu where leibie1 = '补给/入渠类' ";
         dbhelper = new MyDatabaseHelper(getActivity(), "GaixiuDB", null, MainActivity.databasevesion);
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         Cursor c = db.rawQuery(sqlrenwuchaxun, null);
@@ -63,8 +63,6 @@ public class RenwuBujiruquFragment extends Fragment {
             renwubianhao.add(bianhao);
             String leibie1 = c.getString(c.getColumnIndex("leibie1"));
             renwuleibie1.add(leibie1);
-            String leibie2 = c.getString(c.getColumnIndex("leibie2"));
-            renwuleibie2.add(leibie2);
             String mingcheng = c.getString(c.getColumnIndex("mingcheng"));
             renwumingcheng.add(mingcheng);
             String miaoshu = c.getString(c.getColumnIndex("miaoshu"));
@@ -76,7 +74,7 @@ public class RenwuBujiruquFragment extends Fragment {
         db.close();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1, renwuleibie2, renwumingcheng, renwumiaoshu);
+        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1,  renwumingcheng, renwumiaoshu);
         mRecyclerView.setAdapter(mAdapter);
 
 

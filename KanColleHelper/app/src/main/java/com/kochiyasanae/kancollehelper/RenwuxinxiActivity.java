@@ -159,7 +159,7 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         renwuleibie11.setText(renwuleibie1);
 
         TextView renwuleibie21 = (TextView) findViewById(R.id.renwushuxing);
-        if(qitaneirong==null){
+        if(qitaneirong==null||qitaneirong.equals("日常系列任务")||qitaneirong.equals("周常系列任务")||qitaneirong.equals("月常系列任务")){
         renwuleibie21.setText(renwuleibie2);}
         else {renwuleibie21.setText(renwuleibie2+" · "+qitaneirong);}
 
@@ -207,7 +207,7 @@ public class RenwuxinxiActivity extends AppCompatActivity {
                     final String[] renwutiaozhuan1 = {finalQianzhibianhao1, finalQianzhibianhao2};
 
                     dialog.setCancelable(true);
-                    dialog.setSingleChoiceItems(renwutiaozhuan,0, new DialogInterface.OnClickListener() {
+                    dialog.setItems(renwutiaozhuan, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();

@@ -115,6 +115,20 @@
         <item>4</item>
     </string-array>
 
+    <string-array name="pref_gengxin_list_titles">
+        <item>随时检查</item>
+        <item>每天检查一次</item>
+        <item>每三天检查一次</item>
+        <item>每七天检查一次</item>
+    </string-array>
+    <string-array name="pref_gengxin_list_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+
+
 
     <string name="wenhou_dachao_gaier">“司令官，最近怎么样？过得还充实吗？！”</string>
     <string name="wenhou_xia_gaier">“你不在的话也会寂寞的……不，才不是！”</string>
@@ -138,7 +152,7 @@
     <string name="daojujiangli">道具奖励</string>
     <string name="ziyuanjiangli">资源奖励</string>
     <string name="renwujiangli">任务奖励</string>
-    <string name="dianjichakan">点击此处，选择不同系列的任务：</string>
+    <string name="dianjichakan">系列名称</string>
     <string name="richang">日常系列任务</string>
     <string name="zhouchang">周常系列任务</string>
     <string name="yuechang">月常系列任务</string>

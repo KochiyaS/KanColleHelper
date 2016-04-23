@@ -40,7 +40,6 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
 //第一步，声名数值
     public List<String> mdatas;
     public List<String> mdatas1;
-    public List<String> mdatas2;
     public List<String> mdatas3;
     public List<String> mdatas4;
     public List<String> mdatas5;
@@ -50,10 +49,9 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
     }
 
 //第二步，传入数值
-    public RecyclerViewRenwuXilieAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwuleibie2, List<String> renwumingcheng, List<String> renwumiaoshu,List<String> renwufenlei){
+    public RecyclerViewRenwuXilieAdapter(List<String> renwubianhao, List<String> renwuleibie1,  List<String> renwumingcheng, List<String> renwumiaoshu,List<String> renwufenlei){
         this.mdatas = renwubianhao;
         this.mdatas1 = renwuleibie1;
-        this.mdatas2 = renwuleibie2;
         this.mdatas3 = renwumingcheng;
         this.mdatas4= renwumiaoshu;
         this.mdatas5 = renwufenlei;
@@ -116,10 +114,7 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
             ((ViewHolderNormal)holder).textView4.setText(mdatas4.get(position - 1));
             ((ViewHolderNormal)holder).itemView.setTag(mdatas.get(position - 1));
 
-            if (!("一次性任务".equals(mdatas2.get(position-1)))) {
-                ((ViewHolderNormal)holder).textView2.setVisibility(View.VISIBLE);
-                ((ViewHolderNormal)holder).textView2.setText(" · " + mdatas2.get(position-1));
-            }
+
 
             if ("出击类".equals(mdatas1.get(position-1))) {
                 ((ViewHolderNormal)holder).imageView.setImageResource(R.mipmap.ic_chuji);
@@ -163,7 +158,6 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
 
         private TextView textView;
         private TextView textView1;
-        private TextView textView2;
         private TextView textView3;
         private TextView textView4;
         private ImageView imageView;
@@ -175,7 +169,6 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
             super(View);
             textView= (TextView) View.findViewById(R.id.renwubianhao);
             textView1= (TextView) View.findViewById(R.id.renwuleibie1);
-            textView2= (TextView) View.findViewById(R.id.renwuleibie2);
             textView3= (TextView) View.findViewById(R.id.renwumingcheng);
             textView4= (TextView) View.findViewById(R.id.renwujianbao);
             imageView=(ImageView) View.findViewById(R.id.renwuleibietubiao);
