@@ -87,12 +87,13 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
             holder.textView2.setText(" · "+mdatas2.get(position));
         }
 
-        if ("S".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_s);}
+        if ("出击类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_chuji);}
         else if ("编成类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_biancheng);}
-        else if ("E".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_e);}
-        else if ("B".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_b);}
-        else if ("D".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_d);}
-        else if ("A".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng_a);}
+        else if ("远征类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yuanzheng);}
+        else if ("工厂类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_gongchang);}
+        else if ("演习类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_yanxi);}
+        else if ("补给/入渠类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_buji);}
+        else if ("改装类".equals(mdatas1.get(position))){holder.imageView.setImageResource(R.mipmap.ic_gaizhuang);}
 
 
 

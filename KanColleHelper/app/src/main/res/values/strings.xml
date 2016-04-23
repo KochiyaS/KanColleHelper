@@ -120,7 +120,30 @@
     <string name="wenhou_xia_gaier">“你不在的话也会寂寞的……不，才不是！”</string>
     <string name="wenhou_xiao_gaier">“司令官，这么一直看着我的话……！”</string>
     <string name="wenhou_xiang_gaier">“司令官，恋情跟爱情……是什么呢……”</string>
-    <string name="renwujianbao">任务简报</string>
+    <string name="renwujianbao">任务说明</string>
+    <string name="renwumingcheng">任务名称</string>
+    <string name="renwubianhao">任务编号</string>
+    <string name="renwuleixing">任务类型</string>
+    <string name="renwuqianzhi">任务前置</string>
+    <string name="renwushuxing">任务属性</string>
+    <string name="renwuxiangqing">任务说明</string>
+    <string name="zhuyishixiang">任务备注</string>
+    <string name="wu">无</string>
+    <string name="renwushouyi">任务收益</string>
+    <string name="qitashouyi">其他收益</string>
+    <string name="buchongneirong">注意事项</string>
+    <string name="jianyipeizhi">建议配置</string>
+    <string name="xiangxipeizhuang">详细配装</string>
+    <string name="qitajiangli">其他奖励</string>
+    <string name="daojujiangli">道具奖励</string>
+    <string name="ziyuanjiangli">资源奖励</string>
+    <string name="renwujiangli">任务奖励</string>
+    <string name="dianjichakan">点击此处，选择不同系列的任务：</string>
+    <string name="richang">日常系列任务</string>
+    <string name="zhouchang">周常系列任务</string>
+    <string name="yuechang">月常系列任务</string>
+    <string name="xinshou">新手系列任务</string>
+    <string name="jiaban">甲板系列任务</string>
 
 
 </resources>

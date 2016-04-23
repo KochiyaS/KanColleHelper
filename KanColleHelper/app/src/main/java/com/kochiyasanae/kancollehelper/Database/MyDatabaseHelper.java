@@ -17,8 +17,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final String Create_Yuanzheng="create table Yuanzheng(id integer primary key autoincrement,bianhao text,haiyu text,mingcheng text,nandu text,haoshi1 text,haoshi2 text,haoshi3 integer,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,jiangli11 text,jiangli12 integer,jiangli21 text,jiangli22 integer,tidujingyan integer,jianniangjingyan integer,qijiandengji integer,hejidengji integer,yuanzhengyaoqiu text,yuanzhengbeizhu text,xiaohaoran1 text,xiaohaoran2 integer,xiaohaoran3 integer,xiaohaodan1 text,xiaohaodan2 integer,xiaohaodan3 integer,suoshujiandui text,yuanzhengcishu integer)";
 //    public static final String Create_Yuanzhengdui="create table Yuanzhengdui(id integer primary key autoincrement,yuanzhengdui text,yuanzhengpeizhi text,dafadongting integer)";
 
-    public static final String Create_Renwu="create table Renwu(id integer primary key autoincrement,bianhao text,leibie1 text,leibie2 text,mingcheng text,miaoshu text,xiangximiaoshu text,renwubeizhu text,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,daojushouyi1 text,daojushuliang1 integer,daojushouyi2 text,daojushuliang2 integer,qitashouyi text,qianzhibianhao1 text,qianzhirenwu1 text,qianzhibianhao2 text,qianzhirenwu2 text,qitaneirong text)";
-    public static final String Create_Renwugonglue="create table Renwugonglue(id integer primary key autoincrement,bianhao text,mingcheng text,zhikongzhi1 integer,zhikongzhi2 integer,suodizhi1 integer,suodizhi2 integer,jianduipeizhi text,jianduibeizhu text,peizhuang1 text,beizhu1 text,peizhuang2 text,beizhu2 text,peizhuang3 text,beizhu3 text,peizhuang4 text,beizhu4 text,peizhuang5 text,beizhu5 text,peizhi6 text,beizhu6 text)";
+    public static final String Create_Renwu="create table Renwu(id integer primary key autoincrement,bianhao text,leibie1 text,leibie2 text,mingcheng text,miaoshu text,renwubeizhu text,shouyiran integer,shouyidan integer,shouyigang integer,shouyilv integer,daojushouyi1 text,daojushuliang1 integer,daojushouyi2 text,daojushuliang2 integer,qitashouyi text,qianzhibianhao1 text,qianzhirenwu1 text,qianzhibianhao2 text,qianzhirenwu2 text,qitaneirong text,teshurenwu text,haiyuditu text)";
+    public static final String Create_Renwugonglue="create table Renwugonglue(id integer primary key autoincrement,bianhao text,buchongneirong text,jianduipeizhi text,peizhuang1 text,beizhu1 text,peizhuang2 text,beizhu2 text,peizhuang3 text,beizhu3 text,peizhuang4 text,beizhu4 text,peizhuang5 text,beizhu5 text,peizhuang6 text,beizhu6 text)";
 
 
 
@@ -42,7 +42,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(Create_Yuanzheng);
 //        db.execSQL(Create_Yuanzhengdui);
         db.execSQL(Create_Renwu);
-//        db.execSQL(Create_Renwugonglue);
+        db.execSQL(Create_Renwugonglue);
 
         db.beginTransaction();
         db.execSQL("INSERT INTO Gaixiu VALUES ('1','主炮','小口径主炮','12.7cm连装炮','12.7cm连装炮B型改二',null,'10','30','60','0','1/2','1/2',null,'1/2','1/2','12.7cm连装炮×1','2/3','3/6','12.7cm连装炮×2','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','全舰均可','10',null)");
@@ -155,16 +155,17 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
   //      db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
 
 
-        db.execSQL("INSERT INTO Renwu VALUES ('1','A1','编成类','一次性任务','初次的“编成”！','配置2只以上的舰娘','编成拥有2只以上的舰娘的“舰队”！',null,'20','20','0','0',null,null,null,null,'驱逐舰“白雪”',null,null,null,null,null)");
-        db.execSQL("INSERT INTO Renwu VALUES ('2','A2','编成类','一次性任务','“驱逐队”编成！','配置4只以上的驱逐舰','编成拥有4只以上的驱逐舰的“驱逐队”！',null,'30','30','30','0','高速建造材','1',null,null,null,'A1','初次的“编成”！',null,null,null)");
-        db.execSQL("INSERT INTO Renwu VALUES ('3','A3','编成类','一次性任务','“水雷战队”编成！','以轻巡洋舰为旗舰，再配置数只驱逐舰','编成以轻巡洋舰为旗舰，外加数艘驱逐舰的“水雷战队”！',null,'40','40','0','40','开发资材','1',null,null,null,'A2','“驱逐队”编成！',null,null,null)");
-        db.execSQL("INSERT INTO Renwu VALUES ('4','A4','编成类','一次性任务','拥有6只舰娘的舰队编成！','配置6只舰娘','编成拥有6只舰娘的主力舰队！',null,'50','0','50','0',null,null,null,null,'开放第二舰队','A3','“水雷战队”编成！',null,null,null)");
-        db.execSQL("INSERT INTO Renwu VALUES ('5','A5','编成类','一次性任务','拥有2只轻巡的舰队编成！','配置2只轻巡洋舰','编成拥有2只轻巡洋舰的高速舰队！',null,'60','60','0','0','开发资材','1',null,null,null,'A3','“水雷战队”编成！','A3','“水雷战队”编成！',null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('1','A1','编成类','一次性任务','初次的“编成”！','编成拥有2只以上舰娘的舰队',null,'20','20','0','0',null,null,null,null,'驱逐舰“白雪”',null,null,null,null,'新手系列任务',null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('2','A2','编成类','一次性任务','“驱逐队”编成！','编成拥有4只以上驱逐舰的“驱逐队”',null,'30','30','30','0','高速建造材','1',null,null,null,'A1','初次的“编成”！',null,null,'周常系列任务',null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('3','A3','编成类','一次性任务','“水雷战队”编成！','编成拥有轻巡洋舰旗舰，和数只驱逐舰撩舰的“水雷战队”',null,'40','40','0','40','开发资材','1',null,null,null,'A2','“驱逐队”编成！',null,null,'周常系列任务',null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('4','A4','编成类','一次性任务','拥有6只舰娘的舰队编成！','编成拥有6只舰娘的主力舰队',null,'50','0','50','0',null,null,null,null,'开放第二舰队','A3','“水雷战队”编成！',null,null,'甲板系列任务',null,null)");
+        db.execSQL("INSERT INTO Renwu VALUES ('5','A5','编成类','一次性任务','拥有2只轻巡洋舰的舰队编成！','编成拥有2只轻巡洋舰的高速舰队',null,'60','60','0','0','开发资材','1',null,null,null,'A3','“水雷战队”编成！',null,null,'第二块甲板系列任务','攻略任务',null)");
 
 
+        db.execSQL("INSERT INTO Renwugonglue VALUES ('1','A5','本海域70.6（2-5秋）的索敌才能稳定进入BOSS点，建议到游戏中后期再进行该任务','轻巡洋舰X2，驱逐舰X4','轻巡洋舰','双15.2cm主炮+夜间侦察机，为舰队提供夜间火力支援','驱逐舰','双12.7cm主炮+小型电探，建议采用33号电探,提供足够的索敌',null,null,null,null,null,null,null,null)");
 
+                db.setTransactionSuccessful();
 
-        db.setTransactionSuccessful();
         db.endTransaction();
 
 
@@ -230,20 +231,31 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
  //               db.execSQL(Create_Yuanzhengdui);
  //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('1','第二远征队','常规配置','0')");
  //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('2','第三远征队','大成功配置','3')");
- //               db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
+                //db.execSQL("INSERT INTO Yuanzhengdui VALUES ('3','第四远征队','大成功配置','4')");
                 db.setTransactionSuccessful();
                 db.endTransaction();
 
 
             case 3:
+                db.beginTransaction();
+                db.execSQL(Create_Renwu);
+                db.execSQL(Create_Renwugonglue);
+
+                db.execSQL("INSERT INTO Renwu VALUES ('1','A1','编成类','一次性任务','初次的“编成”！','配置2只以上的舰娘','编成拥有2只以上舰娘的“舰队”！',null,'20','20','0','0',null,null,null,null,'驱逐舰“白雪”',null,null,null,null,'新手系列任务',null)");
+                db.execSQL("INSERT INTO Renwu VALUES ('2','A2','编成类','一次性任务','“驱逐队”编成！','配置4只以上的驱逐舰','编成拥有4只以上驱逐舰的“驱逐队”！',null,'30','30','30','0','高速建造材','1',null,null,null,'A1','初次的“编成”！',null,null,null,null)");
+                db.execSQL("INSERT INTO Renwu VALUES ('3','A3','编成类','一次性任务','“水雷战队”编成！','以轻巡洋舰为旗舰，再配置数只驱逐舰','编成以轻巡洋舰为旗舰，外加数艘驱逐舰的“水雷战队”！',null,'40','40','0','40','开发资材','1',null,null,null,'A2','“驱逐队”编成！',null,null,null,null)");
+                db.execSQL("INSERT INTO Renwu VALUES ('4','A4','编成类','一次性任务','拥有6只舰娘的舰队编成！','配置6只舰娘','编成拥有6只舰娘的主力舰队！',null,'50','0','50','0',null,null,null,null,'开放第二舰队','A3','“水雷战队”编成！',null,null,null,null)");
+                db.execSQL("INSERT INTO Renwu VALUES ('5','A5','编成类','一次性任务','拥有2只轻巡洋舰的舰队编成！','配置2只轻巡洋舰','编成拥有2只轻巡洋舰的高速舰队！',null,'60','60','0','0','开发资材','1',null,null,null,'A3','“水雷战队”编成！',null,null,null,'特殊任务')");
 
 
+                db.execSQL("INSERT INTO Renwugonglue VALUES ('1','A5','本海域70.6（2-5秋）的索敌才能稳定进入BOSS点，建议到游戏中后期再进行该任务','轻巡洋舰X2，驱逐舰X4','轻巡洋舰','双15.2cm主炮+夜间侦察机，为舰队提供夜间火力支援','驱逐舰','双12.7cm主炮+小型电探，建议采用33号电探,提供足够的索敌',null,null,null,null,null,null,null,null)");
 
 
+                db.setTransactionSuccessful();
+                db.endTransaction();
 
-
-
-
+            case 24:
+                db.beginTransaction();
 
             default:
 

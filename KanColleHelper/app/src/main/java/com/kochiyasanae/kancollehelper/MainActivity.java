@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private TabLayout mTabLayout;
     private MyDatabaseHelper dbhelper;
-    public static int databasevesion=3;
+    public static int databasevesion=24;
     static int NewAPPVesion=24;
     public static final String APP_UPDATE_SERVER_URL = "https://raw.githubusercontent.com/KochiyaS/KancolleHelperUpdate/master/UpdateInformation.json";
     public static final boolean APK_IS_AUTO_INSTALL = false;
@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent3 = new Intent();
                                     intent3.setClass(MainActivity.this, RenwuActivity.class);
                                     startActivity(intent3);
+                                    overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                                     finish();
                                     break;
 
@@ -177,6 +178,8 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent4 = new Intent();
                                     intent4.setClass(MainActivity.this, YuanzhengActivity.class);
                                     startActivity(intent4);
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
                                     finish();
                                     break;
 
@@ -188,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
                                     bundle.putString("activity",getString(R.string.activity_title1)); //要传递的数据
                                     intent7.putExtras(bundle);
                                     startActivity(intent7);
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                     finish();
 
@@ -198,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent8 = new Intent();
                                     intent8.setClass(MainActivity.this, GuanyugengxinActivity.class);
                                     startActivity(intent8);
+                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                     break;
                             }

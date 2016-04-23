@@ -143,6 +143,8 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent();
                                 intent1.setClass(YuanzhengActivity.this, MainActivity.class);
                                 startActivity(intent1);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
                                 finish();
                                 break;
 
@@ -151,6 +153,8 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent3 = new Intent();
                                 intent3.setClass(YuanzhengActivity.this, RenwuActivity.class);
                                 startActivity(intent3);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
                                 finish();
                                 break;
 
@@ -167,6 +171,8 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 bundle.putString("activity",getString(R.string.activity_title4)); //要传递的数据
                                 intent7.putExtras(bundle);
                                 startActivity(intent7);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
                                 finish();
                                 break;
 
@@ -174,6 +180,7 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent8 = new Intent();
                                 intent8.setClass(YuanzhengActivity.this, GuanyugengxinActivity.class);
                                 startActivity(intent8);
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 break;
 

@@ -17,125 +17,104 @@
     card_view:cardBackgroundColor="?attr/card_bg">
 
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/layout_margin_left"
+    android:layout_marginStart="@dimen/layout_margin_left"
+    android:layout_marginBottom="@dimen/layout_margin_bottom"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginTop="@dimen/layout_margin_top"
             android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_weight="7"
-                android:layout_marginTop="@dimen/layout_margin_top"
-                android:layout_marginLeft="@dimen/layout_margin_left"
-                android:layout_marginStart="@dimen/layout_margin_left"
-                android:layout_gravity="bottom|start"
-                >
 
-            <TextView
-                android:id="@+id/renwubianhao"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/little_text_size"
-                android:ellipsize="end"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/little_text_size"
-                android:ellipsize="end"
-                android:text=" · "
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-            <TextView
-                android:id="@+id/renwuleibie1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/little_text_size"
-                android:ellipsize="end"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-            <TextView
-                android:id="@+id/renwuleibie2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/little_text_size"
-                android:ellipsize="end"
-                android:visibility="gone"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
-
-
-
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/renwuleibietubiao"
+                <TextView
+                    android:id="@+id/renwubianhao"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top|start"
-                    android:contentDescription="@string/imageview_content_description_xiaocaidai" />
+                    android:textSize="@dimen/little_text_size"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/little_text_size"
+                    android:ellipsize="end"
+                    android:text=" · "
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                <TextView
+                    android:id="@+id/renwuleibie1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/little_text_size"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+                <TextView
+                    android:id="@+id/renwuleibie2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/little_text_size"
+                    android:ellipsize="end"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
 
             </LinearLayout>
-        </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="@dimen/layout_margin_left"
-        android:layout_marginStart="@dimen/layout_margin_left"
-        android:layout_marginBottom="@dimen/layout_margin_bottom"
-        >
+            <ImageView
+                android:id="@+id/renwuleibietubiao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="top|left"
+                android:contentDescription="@string/imageview_content_description_xiaocaidai" />
 
+            </LinearLayout>
+            <TextView
+                android:id="@+id/renwumingcheng"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_view_margin_left"
+                android:layout_marginStart="@dimen/text_view_margin_left"
+                android:textSize="@dimen/big_text_size"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/textview_margin_top"
+                android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
-        <TextView
-            android:id="@+id/renwumingcheng"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_view_margin_left"
-            android:layout_marginStart="@dimen/text_view_margin_left"
-            android:textSize="@dimen/big_text_size"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:layout_marginTop="@dimen/textview_margin_top"
-            android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/little_text_size"
+                android:ellipsize="end"
+                android:layout_marginTop="@dimen/textview_margin_top"
+                android:text="@string/renwuxiangqing"
+                android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="@dimen/little_text_size"
-            android:ellipsize="end"
-            android:layout_marginTop="@dimen/textview_margin_top"
-            android:text="@string/renwujianbao"
-            android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+            <TextView
+                android:id="@+id/renwujianbao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/text_view_margin_left"
+                android:layout_marginStart="@dimen/text_view_margin_left"
+                android:textSize="@dimen/middle_text_size"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginTop="@dimen/textview_margin_top"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
-        <TextView
-            android:id="@+id/renwujianbao"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_view_margin_left"
-            android:layout_marginStart="@dimen/text_view_margin_left"
-            android:textSize="@dimen/middle_text_size"
-            android:ellipsize="end"
-            android:maxLines="1"
-            android:layout_marginTop="@dimen/textview_margin_top"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
-    </LinearLayout>
 
 
     </LinearLayout>

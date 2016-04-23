@@ -1,5 +1,6 @@
 package com.kochiyasanae.kancollehelper;
 
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -85,7 +86,7 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         }
 
 
-        final String sqlrenwuxinxi = "select bianhao,leibie1,leibie2,mingcheng,xiangximiaoshu,renwubeizhu,shouyiran,shouyidan,shouyigang,shouyilv,daojushouyi1,daojushuliang1,daojushouyi2,daojushuliang2,qitashouyi,qianzhibianhao1,qianzhirenwu1,qianzhibianhao2,qianzhirenwu2,qitaneirong from renwu where bianhao = ? ";
+        final String sqlrenwuxinxi = "select bianhao,leibie1,leibie2,mingcheng,miaoshu,renwubeizhu,shouyiran,shouyidan,shouyigang,shouyilv,daojushouyi1,daojushuliang1,daojushouyi2,daojushuliang2,qitashouyi,qianzhibianhao1,qianzhirenwu1,qianzhibianhao2,qianzhirenwu2,qitaneirong,teshurenwu,haiyuditu from renwu where bianhao = ? ";
 
         dbhelper = new MyDatabaseHelper(this, "GaixiuDB", null, MainActivity.databasevesion);
         final SQLiteDatabase db = dbhelper.getReadableDatabase();
@@ -110,14 +111,18 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         String qianzhibianhao2 = null;
         String qianzhirenwu2 = null;
 
+        String qitashouyi = null;
+
         String qitaneirong = null;
+        String teshuneirong =null;
+        String haiyuditu=null;
 
         while (c.moveToNext()) {
             renwubianhao = c.getString(c.getColumnIndex("bianhao"));
             renwuleibie1 = c.getString(c.getColumnIndex("leibie1"));
             renwuleibie2 = c.getString(c.getColumnIndex("leibie2"));
             renwumingcheng = c.getString(c.getColumnIndex("mingcheng"));
-            renwushuoming = c.getString(c.getColumnIndex("xiangximiaoshu"));
+            renwushuoming = c.getString(c.getColumnIndex("miaoshu"));
             renwubeizhu = c.getString(c.getColumnIndex("renwubeizhu"));
 
             shouyiran = c.getInt(c.getColumnIndex("shouyiran"));
@@ -129,6 +134,7 @@ public class RenwuxinxiActivity extends AppCompatActivity {
             daojushuliang1 = c.getInt(c.getColumnIndex("daojushuliang1"));
             daojushouyi2 = c.getString(c.getColumnIndex("daojushouyi2"));
             daojushuliang2 = c.getInt(c.getColumnIndex("daojushuliang2"));
+            qitashouyi=c.getString(c.getColumnIndex("qitashouyi"));
 
             qianzhibianhao1 = c.getString(c.getColumnIndex("qianzhibianhao1"));
             qianzhirenwu1 = c.getString(c.getColumnIndex("qianzhirenwu1"));
@@ -136,6 +142,8 @@ public class RenwuxinxiActivity extends AppCompatActivity {
             qianzhirenwu2 = c.getString(c.getColumnIndex("qianzhirenwu2"));
 
             qitaneirong = c.getString(c.getColumnIndex("qitaneirong"));
+            teshuneirong = c.getString(c.getColumnIndex("teshurenwu"));
+            haiyuditu = c.getString(c.getColumnIndex("haiyuditu"));
 
         }
         c.close();
@@ -167,11 +175,10 @@ public class RenwuxinxiActivity extends AppCompatActivity {
 
         if (qianzhibianhao1!=null){
         TextView renwuqianzhi11 = (TextView) findViewById(R.id.renwuqianzhi1);
-        renwuqianzhi11.setText(qianzhibianhao1 +" · "+ qianzhirenwu1);
+        renwuqianzhi11.setText(qianzhibianhao1 + " · " + qianzhirenwu1);
             final String finalQianzhibianhao1 = qianzhibianhao1;
 
             CardView cardView =(CardView) findViewById(R.id.qianzhirenwu);
-            assert cardView != null;
             cardView.setOnClickListener(new android.view.View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -191,7 +198,6 @@ public class RenwuxinxiActivity extends AppCompatActivity {
             final String finalQianzhibianhao1 = qianzhibianhao1;
             final String finalQianzhibianhao2 = qianzhibianhao2;
             CardView cardView =(CardView) findViewById(R.id.qianzhirenwu);
-            assert cardView != null;
             cardView.setOnClickListener(new android.view.View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -201,10 +207,12 @@ public class RenwuxinxiActivity extends AppCompatActivity {
                     final String[] renwutiaozhuan1 = {finalQianzhibianhao1, finalQianzhibianhao2};
 
                     dialog.setCancelable(true);
-                    dialog.setItems(renwutiaozhuan, new DialogInterface.OnClickListener() {
+                    dialog.setSingleChoiceItems(renwutiaozhuan,0, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
                             restartActivity(renwutiaozhuan1[which]);
+
 
                         }
                     });
@@ -214,6 +222,28 @@ public class RenwuxinxiActivity extends AppCompatActivity {
             });
 
         }
+
+/*        if (haiyuditu!=null){
+
+            final String finalhaiyuditu = haiyuditu;
+
+            CardView cardView =(CardView) findViewById(R.id.renwuditu);
+            cardView.setOnClickListener(new android.view.View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent();
+                    intent.setClass(RenwuxinxiActivity.this, DituxinxiActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("mdata",finalhaiyuditu); //要传递的数据
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+
+                }
+            });  }
+*/
+
+
 
         TextView shouyiran1 = (TextView) findViewById(R.id.renwuran);
         shouyiran1.setText("×" + shouyiran);
@@ -227,135 +257,145 @@ public class RenwuxinxiActivity extends AppCompatActivity {
         TextView shouyilv1 = (TextView) findViewById(R.id.renwulv);
         shouyilv1.setText("×" + shouyilv);
 
-     /*   TextView yuanzhengjiangli111 = (TextView) findViewById(R.id.jiangli11);
-        yuanzhengjiangli111.setText( yuanzhengjiangli11+"×" + yuanzhengjiangli12);
+
+        TextView daojushouyi11=(TextView)findViewById(R.id.daojushouyi1);
+        TextView daojushouyi21=(TextView)findViewById(R.id.daojushouyi2);
+        TextView daojushouyi0 =(TextView)findViewById(R.id.daojushouyi0);
+
+        if(daojushouyi1!=null) {
+            daojushouyi11.setText(daojushouyi1 + "×" + daojushuliang1);
+            daojushouyi0.setVisibility(View.VISIBLE);
+            daojushouyi11.setVisibility(View.VISIBLE);
+        }
+
+        if (daojushouyi2!=null){
+            daojushouyi21.setText(daojushouyi2 + "×" + daojushuliang2);
+            daojushouyi21.setVisibility(View.VISIBLE);
+        }
 
 
+        TextView qitashouyi11=(TextView)findViewById(R.id.qitashouyi1);
+        TextView qitashouyi00=(TextView)findViewById(R.id.qitashouyi0);
+
+        if (qitashouyi!=null){
+            qitashouyi11.setText(qitashouyi);
+            qitashouyi00.setVisibility(View.VISIBLE);
+            qitashouyi11.setVisibility(View.VISIBLE);
+        }
 
 
+        ImageView imageView1 =(ImageView)findViewById(R.id.renwuleibietubiao);
 
-        TextView xiaoshiranchanggui1 = (TextView) findViewById(R.id.xiaoshichangguiran);
-        TextView xiaoshidanchanggui1 = (TextView) findViewById(R.id.xiaoshichanguidan);
-        TextView xiaoshigangchanggui1 = (TextView) findViewById(R.id.xiaoshichangguigang);
-        TextView xiaoshilvchanggui1 = (TextView) findViewById(R.id.xiaoshichangguilv);
-        double ran =( yuanzhengran - xiaohaoran2)*60/haoshi3;
-        double dan = ( yuanzhengdan - xiaohaodan2)*60/haoshi3;
-        double gang = yuanzhenggang *60/haoshi3;
-        double lv = yuanzhenglv*60/haoshi3;
-
-        String rans = String .format("%.1f",ran);
-        String dans = String .format("%.1f",dan);
-        String gangs = String .format("%.1f",gang);
-        String lvs = String .format("%.1f",lv);
+        if ("出击类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_chuji);}
+        else if ("编成类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_biancheng);}
+        else if ("远征类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_yuanzheng);}
+        else if ("工厂类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_gongchang);}
+        else if ("演习类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_yanxi);}
+        else if ("补给/入渠类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_buji);}
+        else if ("改装类".equals(renwuleibie1)){imageView1.setImageResource(R.mipmap.ic_gaizhuang);}
 
 
+        if(teshuneirong!=null){
+            CardView cardView = (CardView)findViewById(R.id.teshuneirong);
+            cardView.setVisibility(View.VISIBLE);
+            final String sqlxiangxirenwuxinxi = "select jianduipeizhi,buchongneirong,peizhuang1,beizhu1,peizhuang2,beizhu2,peizhuang3,beizhu3,peizhuang4,beizhu4,peizhuang5,beizhu5,peizhuang6,beizhu6 from Renwugonglue where bianhao = ? ";
+
+            dbhelper = new MyDatabaseHelper(this, "GaixiuDB", null, MainActivity.databasevesion);
+            final SQLiteDatabase db1 = dbhelper.getReadableDatabase();
+            Cursor d = db1.rawQuery(sqlxiangxirenwuxinxi, new String[]{mdata});
+            String jianduipeizhi = null;
+            String peizhuang1 = null;
+            String beizhu1 = null;
+            String peizhuang2 = null;
+            String beizhu2 = null;
+            String peizhuang3 = null;
+            String beizhu3 = null;
+            String peizhuang4 = null;
+            String beizhu4 = null;
+            String peizhuang5 = null;
+            String beizhu5 = null;
+            String peizhuang6 = null;
+            String beizhu6 = null;
+            String buchongneirong = null;
+
+            while (d.moveToNext()) {
+                buchongneirong = d.getString(d.getColumnIndex("buchongneirong"));
+                jianduipeizhi = d.getString(d.getColumnIndex("jianduipeizhi"));
+                peizhuang1 = d.getString(d.getColumnIndex("peizhuang1"));
+                beizhu1 = d.getString(d.getColumnIndex("beizhu1"));
+                peizhuang2 = d.getString(d.getColumnIndex("peizhuang2"));
+                beizhu2 = d.getString(d.getColumnIndex("beizhu2"));
+                peizhuang3 = d.getString(d.getColumnIndex("peizhuang3"));
+                beizhu3 = d.getString(d.getColumnIndex("beizhu3"));
+                peizhuang4 = d.getString(d.getColumnIndex("peizhuang4"));
+                beizhu4 = d.getString(d.getColumnIndex("beizhu4"));
+                peizhuang5 = d.getString(d.getColumnIndex("peizhuang5"));
+                beizhu5 = d.getString(d.getColumnIndex("beizhu5"));
+                peizhuang6 = d.getString(d.getColumnIndex("peizhuang6"));
+                beizhu6 = d.getString(d.getColumnIndex("beizhu6"));
+
+            }
+            d.close();
+            db.close();
+
+            TextView buchongneirong1 = (TextView) findViewById(R.id.buchongneirong);
+            buchongneirong1.setText(buchongneirong);
+
+            TextView jianduipeizhi1 =(TextView)findViewById(R.id.jianduipeizhi);
+            jianduipeizhi1.setText(jianduipeizhi);
+
+            TextView peizhuang11 =(TextView)findViewById(R.id.peizhuang1);
+            peizhuang11.setText(peizhuang1);
+            TextView beizhu11 =(TextView)findViewById(R.id.beizhu1);
+            beizhu11.setText(beizhu1);
 
 
+            if(peizhuang2!=null) {
+                TextView peizhuang21 = (TextView) findViewById(R.id.peizhuang2);
+                peizhuang21.setText(peizhuang2);
+                peizhuang21.setVisibility(View.VISIBLE);
+                TextView beizhu21 = (TextView) findViewById(R.id.beizhu2);
+                beizhu21.setText(beizhu2);
+                beizhu21.setVisibility(View.VISIBLE);}
+            else if (peizhuang3!=null){
+                TextView peizhuang31 = (TextView) findViewById(R.id.peizhuang3);
+                peizhuang31.setText(peizhuang3);
+                peizhuang31.setVisibility(View.VISIBLE);
+                TextView beizhu31 = (TextView) findViewById(R.id.beizhu3);
+                beizhu31.setText(beizhu3);
+                beizhu31.setVisibility(View.VISIBLE);}
+            else if (peizhuang4!=null){
+                TextView peizhuang41 = (TextView) findViewById(R.id.peizhuang4);
+                peizhuang41.setText(peizhuang4);
+                peizhuang41.setVisibility(View.VISIBLE);
+                TextView beizhu41 = (TextView) findViewById(R.id.beizhu4);
+                beizhu41.setText(beizhu4);
+                beizhu41.setVisibility(View.VISIBLE);}
+            else if (peizhuang5!=null){
+                TextView peizhuang51 = (TextView) findViewById(R.id.peizhuang5);
+                peizhuang51.setText(peizhuang5);
+                peizhuang51.setVisibility(View.VISIBLE);
+                TextView beizhu51 = (TextView) findViewById(R.id.beizhu5);
+                beizhu51.setText(beizhu5);
+                beizhu51.setVisibility(View.VISIBLE);}
+            else if (peizhuang6!=null){
+                TextView peizhuang61 = (TextView) findViewById(R.id.peizhuang6);
+                peizhuang61.setText(peizhuang6);
+                peizhuang61.setVisibility(View.VISIBLE);
+                TextView beizhu61 = (TextView) findViewById(R.id.beizhu6);
+                beizhu61.setText(beizhu6);
+                beizhu61.setVisibility(View.VISIBLE);
 
-        xiaoshiranchanggui1.setText("×"+rans);
-        if (ran < 0){xiaoshiranchanggui1.setTextColor(this.getResources().getColor(R.color.fense));}
-        xiaoshidanchanggui1.setText("×"+dans);
-        if (dan < 0){xiaoshidanchanggui1.setTextColor(this.getResources().getColor(R.color.fense));}
-        xiaoshigangchanggui1.setText("×"+gangs);
-        xiaoshilvchanggui1.setText("×"+lvs);
+            }
 
 
-
-
-
-
-        TextView daojushouyi1 = (TextView) findViewById(R.id.daojushouyi);
-
-
-        if (yuanzhengjiangli11==null)  {
-            yuanzhengjiangli111.setVisibility(View.GONE);
-            daojushouyi1.setVisibility(View.GONE);
+        }
 
         }
 
 
-        TextView xiaoshiran1 = (TextView) findViewById(R.id.xiaoshiran);
-        TextView xiaoshidan1 = (TextView) findViewById(R.id.xiaoshidan);
-        TextView xiaoshigang1 = (TextView) findViewById(R.id.xiaoshigang);
-        TextView xiaoshilv1 = (TextView) findViewById(R.id.xiaoshilv);
-        double ran1 =( yuanzhengran*1.5 - xiaohaoran3)*60/haoshi3;
-        double dan1 = ( yuanzhengdan*1.5 - xiaohaodan3)*60/haoshi3;
-        double gang1 = yuanzhenggang*1.5 *60/haoshi3;
-        double lv1 = yuanzhenglv*1.5*60/haoshi3;
-
-        String ran1s = String .format("%.1f",ran1);
-        String dan1s = String .format("%.1f",dan1);
-        String gang1s = String .format("%.1f",gang1);
-        String lv1s = String .format("%.1f",lv1);
 
 
-        xiaoshiran1.setText("×"+ran1s);
-        if (ran1 < 0){xiaoshiran1.setTextColor(this.getResources().getColor(R.color.fense));}
-        xiaoshidan1.setText("×"+dan1s);
-        if (dan1 < 0){xiaoshidan1.setTextColor(this.getResources().getColor(R.color.fense));}
-        xiaoshigang1.setText("×"+gang1s);
-        xiaoshilv1.setText("×"+lv1s);
-
-
-
-        TextView yuanzhengjiangli211 = (TextView) findViewById(R.id.jiangli21);
-        yuanzhengjiangli211.setText(yuanzhengjiangli21+ "×" + yuanzhengjiangli22);
-
-
-
-
-        if (yuanzhengjiangli21==null) {
-            yuanzhengjiangli211.setVisibility(View.GONE);
-
-
-        }
-
-
-        TextView qijiandengji1 = (TextView)findViewById(R.id.qijiandengji);
-        qijiandengji1.setText(qijiandengji);
-
-        if (hejidengji!=null){
-        TextView hejidengji1 = (TextView)findViewById(R.id.hejidengji);
-        hejidengji1.setText(hejidengji);
-        hejidengji1.setVisibility(View.VISIBLE);
-            TextView hejidengjiwenzi=(TextView)findViewById(R.id.hejidengjiwenzi);
-            hejidengjiwenzi.setVisibility(View.VISIBLE);
-        }
-
-        TextView yuanzhengpeizhi1 = (TextView)findViewById(R.id.yuanzhengpeizhi);
-        yuanzhengpeizhi1.setText(yuanzhengpeizhi);
-
-
-        if (yuanzhengbeizhu!=null) {
-
-            TextView yuangzhengbeizhubiaoti1 =(TextView) findViewById(R.id.yuanzhengbeizhubiaoti);
-            yuangzhengbeizhubiaoti1.setVisibility(View.VISIBLE);
-            TextView yuanzhengbeizhu1 = (TextView) findViewById(R.id.yuanzhengbeizhu);
-            yuanzhengbeizhu1.setVisibility(View.VISIBLE);
-            yuanzhengbeizhu1.setText(yuanzhengbeizhu);
-
-        }
-
-
-
-
-
-        ImageView imageView1 =(ImageView)findViewById(R.id.yuanzhengcaidaitubiao);
-
-        if ("S".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_s);}
-        else if ("C".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_c);}
-        else if ("E".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_e);}
-        else if ("B".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_b);}
-        else if ("D".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_d);}
-        else if ("A".equals(yuanzhengnandu)){imageView1.setImageResource(R.mipmap.ic_yuanzheng_a);}
-
-
-
-
-*/
-
-
-    }
 
 
     public void restartActivity(String data)
