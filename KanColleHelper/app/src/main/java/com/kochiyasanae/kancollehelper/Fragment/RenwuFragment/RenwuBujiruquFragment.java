@@ -50,11 +50,11 @@ public class RenwuBujiruquFragment extends Fragment {
 
         List<String> renwumingcheng = new ArrayList<>();
         List<String> renwumiaoshu = new ArrayList<>();
-
+        List<String> renwufenlei = new ArrayList<>();
         String sqlrenwuchaxun = null;
 
 
-        sqlrenwuchaxun = "select bianhao,leibie1,mingcheng,miaoshu from renwu where leibie1 = '补给/入渠类' ";
+        sqlrenwuchaxun = "select bianhao,leibie1,mingcheng,miaoshu,qitaneirong from renwu where leibie1 = '补给/入渠类' ";
         dbhelper = new MyDatabaseHelper(getActivity(), "GaixiuDB", null, MainActivity.databasevesion);
         SQLiteDatabase db = dbhelper.getReadableDatabase();
         Cursor c = db.rawQuery(sqlrenwuchaxun, null);
@@ -67,14 +67,15 @@ public class RenwuBujiruquFragment extends Fragment {
             renwumingcheng.add(mingcheng);
             String miaoshu = c.getString(c.getColumnIndex("miaoshu"));
             renwumiaoshu.add(miaoshu);
-
+            String fenlei =c.getString(c.getColumnIndex("qitaneirong"));
+            renwufenlei.add(fenlei);
 
         }
         c.close();
         db.close();
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1,  renwumingcheng, renwumiaoshu);
+        mAdapter = new RecyclerViewRenwuAdapter(renwubianhao, renwuleibie1, renwumingcheng, renwumiaoshu,renwufenlei);
         mRecyclerView.setAdapter(mAdapter);
 
 

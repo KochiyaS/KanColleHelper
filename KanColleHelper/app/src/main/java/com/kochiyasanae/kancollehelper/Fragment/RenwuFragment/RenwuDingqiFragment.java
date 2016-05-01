@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.kochiyasanae.kancollehelper.Adapter.RecyclerViewRenwuAdapter;
 import com.kochiyasanae.kancollehelper.Adapter.RecyclerViewRenwuXilieAdapter;
 import com.kochiyasanae.kancollehelper.Database.MyDatabaseHelper;
 import com.kochiyasanae.kancollehelper.MainActivity;
@@ -28,7 +29,7 @@ import java.util.List;
 /**
  * Created by KochiyaSanae on 2016/3/26.
  */
-public class RenwuXilieFragment extends Fragment {
+public class RenwuDingqiFragment extends Fragment {
 
 
     private MyDatabaseHelper dbhelper;
@@ -52,8 +53,8 @@ public class RenwuXilieFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         getContext();
-        final SharedPreferences sharedPreferences = getActivity().getSharedPreferences("renwuxilie", Context.MODE_PRIVATE);
-        String renwuxilie = sharedPreferences.getString("renwuxilie", "结婚系列任务");
+        final SharedPreferences sharedPreferences = getActivity().getSharedPreferences("renwudingqi", Context.MODE_PRIVATE);
+        String renwuxilie = sharedPreferences.getString("renwudingqi", "周常系列任务");
 
 
         List<String> renwubianhao = new ArrayList<>();
@@ -107,7 +108,7 @@ public class RenwuXilieFragment extends Fragment {
                 }
                 else
                 {
-                    final String[] renwufenlei = {getString(R.string.jiehun),getString(R.string.jiaban1),getString(R.string.jiaban2),getString(R.string.yanbendui),getString(R.string.yanjingdui),getString(R.string.z1)};
+                    final String[] renwufenlei = {getString(R.string.richang),getString(R.string.zhouchang),getString(R.string.yuechang)};
 
                     AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
                     dialog.setTitle("选择任务分类");
@@ -117,7 +118,7 @@ public class RenwuXilieFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
 
                             SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("renwuxilie", renwufenlei[which]);
+                            editor.putString("renwudingqi", renwufenlei[which]);
                             editor.commit();
                             RenwuActivity a = (RenwuActivity) getActivity();
                             a.getAdapter().reLoad();

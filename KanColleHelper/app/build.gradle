@@ -8,7 +8,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 24
-        versionName '0.20 Release'
+        versionName '0.24 Release'
     }
     buildTypes {
         release {
@@ -32,17 +32,11 @@ allprojects {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
-
     //jCenter
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
     compile 'com.android.support:support-v4:23.2.1'
     compile 'com.android.support:recyclerview-v7:23.2.1'
     compile 'com.android.support:cardview-v7:23.2.1'
-
     compile 'com.github.AndroidDeveloperLB:MaterialPreferenceLibrary:7'
-
-
-
-
 }

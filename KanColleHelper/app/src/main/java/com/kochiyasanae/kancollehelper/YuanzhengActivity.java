@@ -97,33 +97,29 @@ public class YuanzhengActivity extends AppCompatActivity {
         NavigationView navigationView =
             (NavigationView) findViewById(R.id.nv_main_navigation);
         View headerView = navigationView.getHeaderView(0);
-        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "1"));
+        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "3"));
         ImageView mImageView = (ImageView) headerView.findViewById(R.id.kancollehelper);
         TextView mTextView = (TextView) headerView.findViewById(R.id.kancollehelper1);
         switch (touxiang){
             case 1:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_dachao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_dachao_gaier);
                 break;
             case 2:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xia_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xia_gaier);
                 break;
             case 3:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiao_gaier);
                 break;
             case 4:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiang_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiang_gaier);
+                break;
+            case 5:
+                mImageView.setImageResource(R.mipmap.touxiang_lv500);
+                mTextView.setText(R.string.wenhou_lv500);
                 break;
 
         }
@@ -143,7 +139,6 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent();
                                 intent1.setClass(YuanzhengActivity.this, MainActivity.class);
                                 startActivity(intent1);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -153,7 +148,6 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent3 = new Intent();
                                 intent3.setClass(YuanzhengActivity.this, RenwuActivity.class);
                                 startActivity(intent3);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -171,7 +165,6 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 bundle.putString("activity",getString(R.string.activity_title4)); //要传递的数据
                                 intent7.putExtras(bundle);
                                 startActivity(intent7);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -180,7 +173,6 @@ public class YuanzhengActivity extends AppCompatActivity {
                                 Intent intent8 = new Intent();
                                 intent8.setClass(YuanzhengActivity.this, GuanyugengxinActivity.class);
                                 startActivity(intent8);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 break;
 

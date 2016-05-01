@@ -21,6 +21,7 @@
     <dimen name="imageview_margin_right">24dp</dimen>
     <dimen name="text_view_margin_from_imageview_left">3dp</dimen>
     <dimen name="textview_margin_top2">4dp</dimen>
+    <dimen name="text_layout_view_margin_left">39dp</dimen>
 
 
 </resources>

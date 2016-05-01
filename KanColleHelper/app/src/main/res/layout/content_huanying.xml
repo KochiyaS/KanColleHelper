@@ -71,7 +71,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="2016年4月10日  V 0.15 Release"
+                        android:text="2016年5月2日  Ver. 0.24 Release"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
@@ -103,7 +103,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="1、皋月的远征日记已加入豪华午餐。"
+                        android:text="1、大淀的任务指南已加入豪华午餐，现在可以查询全部200+个任务了。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
@@ -126,7 +126,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="1、全新设计了大潮改二、燃弹钢铝等一系列图标。"
+                        android:text="1、增加了主题设置功能，包括五种主题配色和五只舰娘头像。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
                     <TextView
@@ -136,7 +136,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="2、为全部图片增加高分辨率版本，改善了本APP在高分辨率屏幕上的表现。"
+                        android:text="2、增加了夜间模式功能。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
                     <TextView
@@ -157,7 +157,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="1、新增了“欢迎帮助”界面和“关于更新”界面。"
+                        android:text="1、自动更新功能已添加，以后每当有新版本发布时，您将自动收到更新提示。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
                     <TextView
@@ -167,7 +167,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="2、现在你可以通过诸多软件商店下载并更新本APP了(详情请查阅“关于更新”界面)。"
+                        android:text="2、全新设计了“选项·设置”和“关于·更新”的界面。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
@@ -226,7 +226,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="本程序是一款舰Colle的装备改修、远征数据查询APP，适配安卓4.03至6.0版本。"
+                        android:text="本程序是一款舰Colle的装备改修、远征、任务数据查询APP，适配安卓4.03至6.0版本。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
@@ -261,7 +261,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="1、左右滑动打开菜单或切换界面，轻点项目查看详情。"
+                        android:text="1、左右滑动打开菜单或切换功能界面，点击项目可查看该项目的详细内容。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
@@ -278,6 +278,38 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/xingse_text_size"
+                        android:ellipsize="end"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textColor="@color/xingse"
+                        android:text="大淀的任务指南"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="1、可查询全部200多个任务的详细信息(暂不包括已经过期的期间限定任务，这部分内容以后会添加的)。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:text="2、在任务详情页面，点击任务前置可跳转查询前置任务的信息；点击任务内容可跳转查询出击海域(未实装)或远征内容等信息。"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 
 
                     <TextView
@@ -300,7 +332,7 @@
                         android:layout_marginStart="@dimen/text_view_margin_left"
                         android:textSize="@dimen/middle_text_size"
                         android:ellipsize="end"
-                        android:text="1、可查询详细的远征数据。"
+                        android:text="1、可查询全部40多个的远征数据。"
                         android:layout_marginTop="@dimen/textview_margin_top2"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 

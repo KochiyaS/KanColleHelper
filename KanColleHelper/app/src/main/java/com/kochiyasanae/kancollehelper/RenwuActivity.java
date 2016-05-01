@@ -26,10 +26,11 @@ import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuBujiruquFragm
 import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuChujiFragment;
 import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuGongchangFragment;
 import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuXianqirenwuFragment;
+import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuXilieFragment;
 import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuYuanzhengFragment;
 import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuYanxiFragment;
-import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuXilieFragment;
-import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwugGaizhuangFragment;
+import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuDingqiFragment;
+import com.kochiyasanae.kancollehelper.Fragment.RenwuFragment.RenwuGaizhuangFragment;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.GuanyugengxinActivity;
 import com.kochiyasanae.kancollehelper.GuanyuShezhiActivity.XuanxiangshezhiActivity;
 
@@ -100,33 +101,29 @@ public class RenwuActivity extends AppCompatActivity {
         NavigationView navigationView =
             (NavigationView) findViewById(R.id.nv_main_navigation);
         View headerView = navigationView.getHeaderView(0);
-        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "1"));
+        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "3"));
         ImageView mImageView = (ImageView) headerView.findViewById(R.id.kancollehelper);
         TextView mTextView = (TextView) headerView.findViewById(R.id.kancollehelper1);
         switch (touxiang){
             case 1:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_dachao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_dachao_gaier);
                 break;
             case 2:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xia_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xia_gaier);
                 break;
             case 3:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiao_gaier);
                 break;
             case 4:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiang_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiang_gaier);
+                break;
+            case 5:
+                mImageView.setImageResource(R.mipmap.touxiang_lv500);
+                mTextView.setText(R.string.wenhou_lv500);
                 break;
 
         }
@@ -146,7 +143,6 @@ public class RenwuActivity extends AppCompatActivity {
                                 Intent intent1 = new Intent();
                                 intent1.setClass(RenwuActivity.this, MainActivity.class);
                                 startActivity(intent1);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -160,7 +156,6 @@ public class RenwuActivity extends AppCompatActivity {
                                 Intent intent4 = new Intent();
                                 intent4.setClass(RenwuActivity.this, YuanzhengActivity.class);
                                 startActivity(intent4);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -172,7 +167,6 @@ public class RenwuActivity extends AppCompatActivity {
                                 bundle.putString("activity",getString(R.string.activity_title3)); //要传递的数据
                                 intent7.putExtras(bundle);
                                 startActivity(intent7);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 finish();
                                 break;
@@ -181,7 +175,6 @@ public class RenwuActivity extends AppCompatActivity {
                                 Intent intent8 = new Intent();
                                 intent8.setClass(RenwuActivity.this, GuanyugengxinActivity.class);
                                 startActivity(intent8);
-                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                 break;
 
@@ -250,7 +243,7 @@ public class RenwuActivity extends AppCompatActivity {
         TabLayout mTabLayout = (TabLayout) findViewById(R.id.tabs);
 
         List<String> titles = new ArrayList<>();
-        titles.add("系列任务");
+        titles.add("日常/周常/月常");
         titles.add("编成");
         titles.add("出击");
         titles.add("演习");
@@ -258,22 +251,24 @@ public class RenwuActivity extends AppCompatActivity {
         titles.add("补给/入渠");
         titles.add("工厂");
         titles.add("改装");
-        titles.add("期间限定任务(已过期)");
+        titles.add("系列任务");
+//        titles.add("已经过期的期间限定任务(未实装)");
 
         for(int i=0;i<titles.size();i++){
             mTabLayout.addTab(mTabLayout.newTab().setText(titles.get(i)));
         }
 
         fragment = new ArrayList<>();
-        fragment.add(new RenwuXilieFragment());
+        fragment.add(new RenwuDingqiFragment());
         fragment.add(new RenwuBianchengFragment());
         fragment.add(new RenwuChujiFragment());
         fragment.add(new RenwuYanxiFragment());
         fragment.add(new RenwuYuanzhengFragment());
         fragment.add(new RenwuBujiruquFragment());
         fragment.add(new RenwuGongchangFragment());
-        fragment.add(new RenwugGaizhuangFragment());
-        fragment.add(new RenwuXianqirenwuFragment());
+        fragment.add(new RenwuGaizhuangFragment());
+        fragment.add(new RenwuXilieFragment());
+//        fragment.add(new RenwuXianqirenwuFragment());
 
 
         mFragmentAdapteradapter =
@@ -286,15 +281,16 @@ public class RenwuActivity extends AppCompatActivity {
             {
                 fragment = null;
                 List<Fragment> list = new ArrayList<Fragment>();
-                list.add(new RenwuXilieFragment());
+                list.add(new RenwuDingqiFragment());
                 list.add(new RenwuBianchengFragment());
                 list.add(new RenwuChujiFragment());
                 list.add(new RenwuYanxiFragment());
                 list.add(new RenwuYuanzhengFragment());
                 list.add(new RenwuBujiruquFragment());
                 list.add(new RenwuGongchangFragment());
-                list.add(new RenwugGaizhuangFragment());
-                list.add(new RenwuXianqirenwuFragment());
+                list.add(new RenwuGaizhuangFragment());
+                list.add(new RenwuXilieFragment());
+//                list.add(new RenwuXianqirenwuFragment());
                 mFragmentAdapteradapter.setPagerItems(list);
             }
         });

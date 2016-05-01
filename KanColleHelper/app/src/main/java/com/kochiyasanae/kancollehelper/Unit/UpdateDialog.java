@@ -40,7 +40,6 @@ public class UpdateDialog extends DialogFragment {
     private void goToDownload() {
         Intent intent=new Intent(getActivity().getApplicationContext(),DownloadService.class);
         intent.putExtra(Constants.APK_DOWNLOAD_URL, getArguments().getString(Constants.APK_DOWNLOAD_URL));
-        intent.putExtra(Constants.APK_IS_AUTO_INSTALL, getArguments().getBoolean(Constants.APK_IS_AUTO_INSTALL));
         getActivity().startService(intent);
     }
 }

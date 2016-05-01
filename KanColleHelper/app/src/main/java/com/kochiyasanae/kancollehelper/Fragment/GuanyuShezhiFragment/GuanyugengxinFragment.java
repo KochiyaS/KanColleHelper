@@ -26,7 +26,7 @@ public class GuanyugengxinFragment extends PreferenceFragment{
             @Override
             public boolean onPreferenceClick(Preference preference) {
 
-                UpdateChecker.checkForDialog((FragmentActivity) getActivity(), MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
+                UpdateChecker.checkForDialog((FragmentActivity) getActivity(), MainActivity.APP_UPDATE_SERVER_URL);
 
                 return true;
             }

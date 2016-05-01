@@ -13,7 +13,7 @@
 
         <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="当前版本"
-            android:summary="2016/4/17 Ver.0.20 Release">
+            android:summary="2016/5/2  Ver.0.24 Release">
         </com.lb.material_preferences_library.custom_preferences.Preference>
     </PreferenceCategory>
 
@@ -43,12 +43,12 @@
 
         <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="开发中"
-            android:summary="大淀的任务记录">
+            android:summary="大艇的侦察记录、搜索功能">
         </com.lb.material_preferences_library.custom_preferences.Preference>
 
         <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="已完成"
-            android:summary="明石的改修日常、皋月的远征日记">
+            android:summary="明石的改修日常、皋月的远征日记、大淀的任务记录(95%)">
         </com.lb.material_preferences_library.custom_preferences.Preference>
 
     </PreferenceCategory>
@@ -58,13 +58,18 @@
         android:title="其他信息">
 
         <com.lb.material_preferences_library.custom_preferences.Preference
-            android:title="联系作者"
+            android:title="作者信息"
+            android:summary="KochiyaSanae">
+        </com.lb.material_preferences_library.custom_preferences.Preference>
+
+        <com.lb.material_preferences_library.custom_preferences.Preference
+            android:title="联系方式"
             android:summary="KochiyaSanae@outlook.com">
         </com.lb.material_preferences_library.custom_preferences.Preference>
 
         <com.lb.material_preferences_library.custom_preferences.Preference
             android:title="免责声明"
-            android:summary="本app内容均收录自公开资料，如有侵权请联系作者">
+            android:summary="本app内容均收录自公开资料，如有侵权请联系">
         </com.lb.material_preferences_library.custom_preferences.Preference>
 
         <com.lb.material_preferences_library.custom_preferences.Preference

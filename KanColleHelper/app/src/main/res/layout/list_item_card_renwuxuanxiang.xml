@@ -59,7 +59,7 @@
                 android:textSize="@dimen/little_text_size"
                 android:ellipsize="end"
                 android:layout_marginTop="@dimen/textview_margin_top"
-                android:text="系列说明"
+                android:text="操作说明"
                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
             <TextView
@@ -70,7 +70,7 @@
                 android:textSize="@dimen/middle_text_size"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="点击此处，切换显示的任务系列"
+                android:text="点击此处，切换想要查看的任务系列"
                 android:layout_marginTop="@dimen/textview_margin_top"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
 

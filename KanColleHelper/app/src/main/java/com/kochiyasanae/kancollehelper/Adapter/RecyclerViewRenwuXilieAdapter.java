@@ -109,7 +109,7 @@ public class RecyclerViewRenwuXilieAdapter extends RecyclerView.Adapter<Recycler
         {
 
             ((ViewHolderNormal)holder).textView.setText(mdatas.get(position-1));
-            ((ViewHolderNormal)holder).textView1.setText(mdatas1.get(position-1));
+            ((ViewHolderNormal)holder).textView1.setText(mdatas1.get(position-1)+" · "+mdatas5.get(position-1));
             ((ViewHolderNormal)holder).textView3.setText(mdatas3.get(position-1));
             ((ViewHolderNormal)holder).textView4.setText(mdatas4.get(position - 1));
             ((ViewHolderNormal)holder).itemView.setTag(mdatas.get(position - 1));

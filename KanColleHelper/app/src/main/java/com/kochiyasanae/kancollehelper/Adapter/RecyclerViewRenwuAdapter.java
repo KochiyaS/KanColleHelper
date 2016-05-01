@@ -42,15 +42,18 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
     public List<String> mdatas1;
     public List<String> mdatas3;
     public List<String> mdatas4;
+    public List<String> mdatas5;
 
 
 
 //第二步，传入数值
-    public RecyclerViewRenwuAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwumingcheng, List<String> renwumiaoshu){
+    public RecyclerViewRenwuAdapter(List<String> renwubianhao, List<String> renwuleibie1, List<String> renwumingcheng, List<String> renwumiaoshu,List<String> renwufenlei){
         this.mdatas = renwubianhao;
         this.mdatas1 = renwuleibie1;
         this.mdatas3 = renwumingcheng;
         this.mdatas4= renwumiaoshu;
+        this.mdatas5= renwufenlei;
+
     }
 
     public RecyclerViewRenwuAdapter(Context mContext) {
@@ -75,7 +78,11 @@ public class RecyclerViewRenwuAdapter extends RecyclerView.Adapter<RecyclerViewR
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.textView.setText(mdatas.get(position));
-        holder.textView1.setText(mdatas1.get(position));
+        if (mdatas5.get(position)==null){
+        holder.textView1.setText(mdatas1.get(position));}
+        else {
+            holder.textView1.setText(mdatas1.get(position) + " · " + mdatas5.get(position));
+        }
         holder.textView3.setText(mdatas3.get(position));
         holder.textView4.setText(mdatas4.get(position));
         holder.itemView.setTag(mdatas.get(position));

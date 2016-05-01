@@ -64,6 +64,7 @@
                                 android:layout_height="wrap_content"
                                 android:textSize="@dimen/little_text_size"
                                 android:ellipsize="end"
+                                android:layout_marginTop="@dimen/textview_margin_top2"
                                 android:text="@string/renwumingcheng"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
                         </LinearLayout>
@@ -102,7 +103,7 @@
                             android:textSize="@dimen/big_text_size"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:layout_marginTop="@dimen/textview_margin_top"
+                            android:layout_marginTop="@dimen/textview_margin_top2"
                             android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
 
                         <TextView
@@ -110,7 +111,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/little_text_size"
                             android:ellipsize="end"
-                            android:layout_marginTop="@dimen/textview_margin_top"
+                            android:layout_marginTop="@dimen/textview_margin_top2"
                             android:text="@string/renwubianhao"
                             android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
 
@@ -123,7 +124,7 @@
                             android:textSize="@dimen/middle_text_size"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            android:layout_marginTop="@dimen/textview_margin_top"
+                            android:layout_marginTop="@dimen/textview_margin_top2"
                             android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
                     </LinearLayout>
 
@@ -566,6 +567,31 @@
                         android:ellipsize="end"
                         android:visibility="gone"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
+
+                    <TextView
+                        android:id="@+id/yijuhua"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/little_text_size"
+                        android:ellipsize="end"
+                        android:text="@string/yijuhua"
+                        android:visibility="gone"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Caption"/>
+
+                    <TextView
+                        android:id="@+id/yijuhuagonglue"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/textview_margin_top2"
+                        android:layout_marginStart="@dimen/text_view_margin_left"
+                        android:layout_marginLeft="@dimen/text_view_margin_left"
+                        android:textSize="@dimen/middle_text_size"
+                        android:ellipsize="end"
+                        android:visibility="gone"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>

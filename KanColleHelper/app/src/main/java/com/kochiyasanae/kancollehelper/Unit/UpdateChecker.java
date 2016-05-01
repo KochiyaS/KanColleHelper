@@ -31,9 +31,10 @@ import android.widget.Toast;
 
 public class UpdateChecker extends Fragment {
 
+    //private static final String NOTIFICATION_ICON_RES_ID_KEY = "resId";
     private static final String NOTICE_TYPE_KEY = "type";
     private static final String APP_UPDATE_SERVER_URL = "app_update_server_url";
-    private static final String APK_IS_AUTO_INSTALL = "apk_is_auto_install";
+    //private static final String SUCCESSFUL_CHECKS_REQUIRED_KEY = "nChecks";
     private static final int NOTICE_NOTIFICATION = 2;
     private static final int NOTICE_DIALOG = 1;
     private static final String TAG = "UpdateChecker";
@@ -41,27 +42,26 @@ public class UpdateChecker extends Fragment {
     private FragmentActivity mContext;
     private Thread mThread;
     private int mTypeOfNotice;
-    private boolean mIsAutoInstall;
 
     /**
      * Show a Dialog if an update is available for download. Callable in a
      * FragmentActivity. Number of checks after the dialog will be shown:
      * default, 5
      *
-     * @param fragmentActivity Required.
+     * @param fragmentActivity
+     *            Required.
      */
-    public static void checkForDialog(FragmentActivity fragmentActivity,
-                                      String checkUpdateServerUrl,
-                                      boolean isAutoInstall) {
+    public static void checkForDialog(FragmentActivity fragmentActivity,String url) {
         FragmentTransaction content = fragmentActivity.getSupportFragmentManager().beginTransaction();
         UpdateChecker updateChecker = new UpdateChecker();
         Bundle args = new Bundle();
         args.putInt(NOTICE_TYPE_KEY, NOTICE_DIALOG);
-        args.putString(APP_UPDATE_SERVER_URL, checkUpdateServerUrl);
-        args.putBoolean(APK_IS_AUTO_INSTALL, isAutoInstall);
+        args.putString(APP_UPDATE_SERVER_URL,url);
+        //args.putInt(SUCCESSFUL_CHECKS_REQUIRED_KEY, 5);
         updateChecker.setArguments(args);
         content.add(updateChecker, null).commit();
     }
+
 
 
     /**
@@ -69,17 +69,17 @@ public class UpdateChecker extends Fragment {
      * FragmentActivity Specify the number of checks after the notification will
      * be shown.
      *
-     * @param fragmentActivity Required.
+     * @param fragmentActivity
+     *            Required.
      */
-    public static void checkForNotification(FragmentActivity fragmentActivity,
-                                            String checkUpdateServerUrl,
-                                            boolean isAutoInstall) {
+    public static void checkForNotification(FragmentActivity fragmentActivity,String url) {
         FragmentTransaction content = fragmentActivity.getSupportFragmentManager().beginTransaction();
         UpdateChecker updateChecker = new UpdateChecker();
         Bundle args = new Bundle();
         args.putInt(NOTICE_TYPE_KEY, NOTICE_NOTIFICATION);
-        args.putString(APP_UPDATE_SERVER_URL, checkUpdateServerUrl);
-        args.putBoolean(APK_IS_AUTO_INSTALL, isAutoInstall);
+        args.putString(APP_UPDATE_SERVER_URL,url);
+        //args.putInt(NOTIFICATION_ICON_RES_ID_KEY, notificationIconResId);
+        //args.putInt(SUCCESSFUL_CHECKS_REQUIRED_KEY, 5);
         updateChecker.setArguments(args);
         content.add(updateChecker, null).commit();
     }
@@ -94,8 +94,9 @@ public class UpdateChecker extends Fragment {
         mContext = (FragmentActivity) activity;
         Bundle args = getArguments();
         mTypeOfNotice = args.getInt(NOTICE_TYPE_KEY);
-        mIsAutoInstall = args.getBoolean(APK_IS_AUTO_INSTALL);
         String url = args.getString(APP_UPDATE_SERVER_URL);
+        //mSuccessfulChecksRequired = args.getInt(SUCCESSFUL_CHECKS_REQUIRED_KEY);
+        //mNotificationIconResId = args.getInt(NOTIFICATION_ICON_RES_ID_KEY);
         checkForUpdates(url);
     }
 
@@ -110,9 +111,9 @@ public class UpdateChecker extends Fragment {
                 //if (isNetworkAvailable(mContext)) {
 
                 String json = sendPost(url);
-                if (json != null) {
+                if(json!=null){
                     parseJson(json);
-                } else {
+                }else{
                     Log.e(TAG, "can't get app update json");
                 }
                 //}
@@ -122,7 +123,7 @@ public class UpdateChecker extends Fragment {
         mThread.start();
     }
 
-    private String sendPost(String urlStr) {
+    protected String sendPost(String urlStr) {
         HttpURLConnection uRLConnection = null;
         InputStream is = null;
         BufferedReader buffer = null;
@@ -163,21 +164,21 @@ public class UpdateChecker extends Fragment {
         } catch (Exception e) {
             Log.e(TAG, "http post error", e);
         } finally {
-            if (buffer != null) {
+            if(buffer!=null){
                 try {
                     buffer.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (is != null) {
+            if(is!=null){
                 try {
                     is.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (uRLConnection != null) {
+            if(uRLConnection!=null){
                 uRLConnection.disconnect();
             }
         }
@@ -191,18 +192,6 @@ public class UpdateChecker extends Fragment {
         try {
 
             JSONObject obj = new JSONObject(json);
-            if (!obj.has(Constants.APK_DOWNLOAD_URL)) {
-                Log.e(TAG, "Server response data format error: no " + Constants.APK_DOWNLOAD_URL + " field");
-                return;
-            }
-            if (!obj.has(Constants.APK_UPDATE_CONTENT)) {
-                Log.e(TAG, "Server response data format error: no " + Constants.APK_UPDATE_CONTENT + " field");
-                return;
-            }
-            if (!obj.has(Constants.APK_VERSION_CODE)) {
-                Log.e(TAG, "Server response data format error: no " + Constants.APK_VERSION_CODE + " field");
-                return;
-            }
             String updateMessage = obj.getString(Constants.APK_UPDATE_CONTENT);
             String apkUrl = obj.getString(Constants.APK_DOWNLOAD_URL);
             int apkCode = obj.getInt(Constants.APK_VERSION_CODE);
@@ -211,13 +200,11 @@ public class UpdateChecker extends Fragment {
 
             if (apkCode > versionCode) {
                 if (mTypeOfNotice == NOTICE_NOTIFICATION) {
-                    showNotification(updateMessage, apkUrl, mIsAutoInstall);
+                    showNotification(updateMessage,apkUrl);
                 } else if (mTypeOfNotice == NOTICE_DIALOG) {
-                    showDialog(updateMessage, apkUrl, mIsAutoInstall);
+                    showDialog(updateMessage,apkUrl);
                 }
             } else {
-                Log.i(TAG, mContext.getString(R.string.app_no_new_update));
-
                 Toast.makeText(mContext, mContext.getString(R.string.app_no_new_update), Toast.LENGTH_SHORT).show();
             }
 
@@ -229,26 +216,26 @@ public class UpdateChecker extends Fragment {
 
     /**
      * Show dialog
+     *
      */
-    private void showDialog(String content, String apkUrl, boolean isAutoInstall) {
+    public void showDialog(String content,String apkUrl) {
         UpdateDialog d = new UpdateDialog();
         Bundle args = new Bundle();
         args.putString(Constants.APK_UPDATE_CONTENT, content);
         args.putString(Constants.APK_DOWNLOAD_URL, apkUrl);
-        args.putBoolean(Constants.APK_IS_AUTO_INSTALL, isAutoInstall);
         d.setArguments(args);
         d.show(mContext.getSupportFragmentManager(), null);
     }
 
     /**
      * Show Notification
+     *
      */
-    private void showNotification(String content, String apkUrl, boolean isAutoInstall) {
+    public void showNotification(String content,String apkUrl) {
         android.app.Notification noti;
         Intent myIntent = new Intent(mContext, DownloadService.class);
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         myIntent.putExtra(Constants.APK_DOWNLOAD_URL, apkUrl);
-        myIntent.putExtra(Constants.APK_IS_AUTO_INSTALL, isAutoInstall);
         PendingIntent pendingIntent = PendingIntent.getService(mContext, 0, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         int smallIcon = mContext.getApplicationInfo().icon;
@@ -260,6 +247,7 @@ public class UpdateChecker extends Fragment {
         NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(0, noti);
     }
+
 
 
     /**

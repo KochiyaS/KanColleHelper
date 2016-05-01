@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
     public static int databasevesion=24;
     static int NewAPPVesion=24;
     public static final String APP_UPDATE_SERVER_URL = "https://raw.githubusercontent.com/KochiyaS/KancolleHelperUpdate/master/UpdateInformation.json";
-    public static final boolean APK_IS_AUTO_INSTALL = true;
 
 
     public FragmentAdapter mFragmentAdapteradapter;
@@ -122,33 +121,29 @@ public class MainActivity extends AppCompatActivity {
                 (NavigationView) findViewById(R.id.nv_main_navigation);
 
         View headerView = navigationView.getHeaderView(0);
-        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "1"));
+        final int touxiang = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("touxiang_list", "3"));
         ImageView mImageView = (ImageView) headerView.findViewById(R.id.kancollehelper);
         TextView mTextView = (TextView) headerView.findViewById(R.id.kancollehelper1);
         switch (touxiang){
             case 1:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_dachao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_dachao_gaier);
                 break;
             case 2:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xia_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xia_gaier);
                 break;
             case 3:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiao_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiao_gaier);
                 break;
             case 4:
-                assert mImageView != null;
                 mImageView.setImageResource(R.mipmap.touxiang_xiang_gaier);
-                assert mTextView != null;
                 mTextView.setText(R.string.wenhou_xiang_gaier);
+                break;
+            case 5:
+                mImageView.setImageResource(R.mipmap.touxiang_lv500);
+                mTextView.setText(R.string.wenhou_lv500);
                 break;
 
         }
@@ -172,7 +167,6 @@ public class MainActivity extends AppCompatActivity {
                                             Intent intent3 = new Intent();
                                             intent3.setClass(MainActivity.this, RenwuActivity.class);
                                             startActivity(intent3);
-                                            overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
                                             finish();
 
                                     break;
@@ -183,8 +177,6 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent4 = new Intent();
                                     intent4.setClass(MainActivity.this, YuanzhengActivity.class);
                                     startActivity(intent4);
-                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-
                                     finish();
                                     break;
 
@@ -196,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
                                     bundle.putString("activity",getString(R.string.activity_title1)); //要传递的数据
                                     intent7.putExtras(bundle);
                                     startActivity(intent7);
-                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                     finish();
 
@@ -207,7 +198,6 @@ public class MainActivity extends AppCompatActivity {
                                     Intent intent8 = new Intent();
                                     intent8.setClass(MainActivity.this, GuanyugengxinActivity.class);
                                     startActivity(intent8);
-                                    overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
                                     break;
                             }
@@ -250,46 +240,46 @@ public class MainActivity extends AppCompatActivity {
                 int date2 = calendar.get(Calendar.DATE);
 
 
-            switch (gengxinmode2) {
-                case 1:
-                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
-                    Log.d("debug", "每次检查");
+                switch (gengxinmode2) {
+                    case 1:
+                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL);
+                        Log.d("debug", "每次检查");
 
-                    break;
+                        break;
 
-                case 2:
+                    case 2:
 
-                    if (date1 != date2) {
-                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
-                        SharedPreferences.Editor editor = sharedPreferences2.edit();
-                        editor.putInt("Date", date2);
-                        editor.commit();
-                        Log.d("debug", "今天检查一次");
+                        if (date1 != date2) {
+                            UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL);
+                            SharedPreferences.Editor editor = sharedPreferences2.edit();
+                            editor.putInt("Date", date2);
+                            editor.commit();
+                            Log.d("debug", "今天检查一次");
 
-                    }
-                    break;
-                case 3:
-                    if ((date1!=date2)&&(date2 % 3 == 2)){
-                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
-                        SharedPreferences.Editor editor = sharedPreferences2.edit();
-                        editor.putInt("Date", date2);
-                        editor.commit();
-                        Log.d("debug", "三天检查一次");
+                        }
+                        break;
+                    case 3:
+                        if ((date1!=date2)&&(date2 % 3 == 2)){
+                            UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL);
+                            SharedPreferences.Editor editor = sharedPreferences2.edit();
+                            editor.putInt("Date", date2);
+                            editor.commit();
+                            Log.d("debug", "三天检查一次");
 
-                    }
-                    break;
+                        }
+                        break;
 
-                case 4:
-                    if ((date1!=date2)&&(date2 % 7 == 2)){
-                        UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL, MainActivity.APK_IS_AUTO_INSTALL);
-                        SharedPreferences.Editor editor = sharedPreferences2.edit();
-                        editor.putInt("Date", date2);
-                        editor.commit();
-                        Log.d("debug", "七天检查一次");
+                    case 4:
+                        if ((date1!=date2)&&(date2 % 7 == 2)){
+                            UpdateChecker.checkForDialog(MainActivity.this, MainActivity.APP_UPDATE_SERVER_URL);
+                            SharedPreferences.Editor editor = sharedPreferences2.edit();
+                            editor.putInt("Date", date2);
+                            editor.commit();
+                            Log.d("debug", "七天检查一次");
 
-                    }
-                    break;
-            }
+                        }
+                        break;
+                }
 
             }
 

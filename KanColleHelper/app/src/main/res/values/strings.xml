@@ -104,15 +104,17 @@
 
     <string-array name="pref_touxiang_list_titles">
         <item>大潮改二</item>
-        <item>霞改二</item>
+        <item>霞改二乙</item>
         <item>晓改二</item>
         <item>Верный</item>
+        <item>吕500</item>
     </string-array>
     <string-array name="pref_touxiang_list_values">
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>4</item>
+        <item>5</item>
     </string-array>
 
     <string-array name="pref_gengxin_list_titles">
@@ -134,6 +136,7 @@
     <string name="wenhou_xia_gaier">“你不在的话也会寂寞的……不，才不是！”</string>
     <string name="wenhou_xiao_gaier">“司令官，这么一直看着我的话……！”</string>
     <string name="wenhou_xiang_gaier">“司令官，恋情跟爱情……是什么呢……”</string>
+    <string name="wenhou_lv500">“提督，蜜月旅行，就去舞鹤吧！”</string>
     <string name="renwujianbao">任务说明</string>
     <string name="renwumingcheng">任务名称</string>
     <string name="renwubianhao">任务编号</string>
@@ -156,8 +159,14 @@
     <string name="richang">日常系列任务</string>
     <string name="zhouchang">周常系列任务</string>
     <string name="yuechang">月常系列任务</string>
-    <string name="xinshou">新手系列任务</string>
-    <string name="jiaban">甲板系列任务</string>
+    <string name="jiehun">结婚系列任务</string>
+    <string name="jiaban1">翔鹤甲板系列任务</string>
+    <string name="jiaban2">瑞鹤甲板系列任务</string>
+    <string name="yanbendui">岩本队系列任务</string>
+    <string name="yanjingdui">岩井队系列任务</string>
+
+    <string name="yijuhua">一句话攻略</string>
+    <string name="z1">Z1系列任务</string>
 
 
 </resources>
